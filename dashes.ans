@@ -1,0 +1,26 @@
+
+hmenu Dashes
+
+dash8x3
+*
+menu
+$env(HOME)/ds9_hacks/dashlist.py $xpa 8 3 | $text
+
+dash2x2
+*
+menu
+$env(HOME)/ds9_hacks/dashlist.py $xpa 2 2 | $text
+
+dash10x4
+*
+menu
+$env(HOME)/ds9_hacks/dashlist.py $xpa 10 4 | $text
+
+dash5x5
+*
+menu
+$env(HOME)/ds9_hacks/dashlist.py $xpa 5 5 | $text
+
+
+endhmenu
+
