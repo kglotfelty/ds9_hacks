@@ -39,8 +39,13 @@ ln -s $HOME/ds9_hacks/.ds9.ini ./
 ```
 
 The `$HOME/.ds9.ini` file is automatically loaded by `ds9` when it starts.
-This is a `Tcl/Tk` script from which any number of customizations can
-be deployed.
+
+You can move the `ds9_hacks` directory to whatever location you want; you just need to modify the `.ds9.ini` file to point
+to it.
+
+```tcl
+set ds9_hack_root "$env(HOME)/ds9_hacks"
+```
 
 
 
