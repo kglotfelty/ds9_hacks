@@ -62,8 +62,8 @@ It was built on top of a set of modular components and meant to be easily
 adaptable.  There are various entry points into the application.  The
 one used by this set of hacks is the `.ds9.ini` file.
 
-The `$HOME/.ds9.ini` file is automatically loaded by `ds9` when it starts.  
-It is a `Tcl/Tk` script which can do whatever the user desires.  The
+The `$HOME/.ds9.ini` file is automatically loaded by `ds9` when it starts.  It is
+a `Tcl/Tk` script which can do whatever the user desires.  The
 version of the script in this repro loads the other scripts to create the various buttons,
 loads the new color lookup tables, and adds new analysis tasks.
 
@@ -80,6 +80,16 @@ Each of the scripts has comments describing how, in general, it works.
 For specific `ds9` functions, you will need to go diving into the 
 `ds9` source code.
 
+The color maps are loaded via the `extra_lut.tcl` script.  That script
+includes a modified version of the original `ds9` `load_color_map` routine
+which 
+
+- places the new LUTs in their own sub-menu.
+- add icons for the color maps 
+
+The _XImage_ and _ImageJ_ LUTs are taken from public domain software package.  
+I have many more LUTs in my own personal collection but they require 
+different licensing that I'd rather not deal with.
 
 
 ## Versions
