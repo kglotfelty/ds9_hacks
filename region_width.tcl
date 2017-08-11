@@ -1,24 +1,21 @@
 
 
 proc my_change_width { plusminus } {
-  global ds9
   global marker
 
     if { $plusminus == 1 } {
-	if { $marker(width) <= 3 } {
-	    incr marker(width)
-	}
+        if { $marker(width) <= 3 } {
+            incr marker(width)
+        }
     }
 
     if { $plusminus == -1 } {
-	if { $marker(width) >= 2 } {
-	    incr marker(width) -1
-	}
+        if { $marker(width) >= 2 } {
+            incr marker(width) -1
+        }
     }
 
     MarkerWidth
-
-
 }
 
 

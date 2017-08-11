@@ -1,5 +1,6 @@
+
+
 proc my_change_marker { iswhat } {
-  global ds9
   global marker
 
   set marker(shape) $iswhat

@@ -1,14 +1,12 @@
 
 
-
 proc my_change_srcbkg {} {
-  global ds9
-  global marker
+    global marker
 
     if { $marker(source) == 0 } {
-	set marker(source) 1
+        set marker(source) 1
     } else {
-	set marker(source) 0
+        set marker(source) 0
     }
 
     MarkerProp source
@@ -17,17 +15,16 @@ proc my_change_srcbkg {} {
 
 
 proc my_change_incexl {} {
-  global ds9
-  global marker
+    global marker
 
     if { $marker(include) == 0 } {
-	set marker(include) 1
+        set marker(include) 1
     } else {
-	set marker(include) 0
+        set marker(include) 0
     }
 
     MarkerProp include
-
+    
 }
 
 
