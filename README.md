@@ -53,8 +53,8 @@ You will also need to modify the `dashes.ans` to point to the new location.
 ## How does it work?
 
 
-Under the hood, the `ds9` user interface (GUI) is written in `Tcl/Tk` (pronounced
-_tickle tee kay_).  `ds9` was originally developed as a demonstration of a 
+Under the hood, the `ds9` user interface (GUI) is written in [`Tcl/Tk`](https://www.tcl.tk/) 
+(pronounced _tickle tee kay_).  `ds9` was originally developed as a demonstration of a 
 set of `Tcl/Tk`  widgets as discussed in
 [SAOTk: Tcl/Tk Widgets for Imaging and Data Visualization](http://www.adass.org/adass/proceedings/adass98/joyew/).
 
@@ -114,19 +114,11 @@ in unexpected way.  For example, there is a known issue that the
 new button bar does not display correctly when the user switches to the
 `Vertical Orientation` layout.
 
+No support is given.  Your results may vary.  This work is not 
+in any way connected with the `SAOImageDS9` project, it's sponsors, 
+nor anything related to my day job.   All opinions, comments, text, etc are
+mine alone.
 
-
-## History
-
-
-
-
-At the time, `ds9` was only being developed as a technology demonstration 
-application.  
-
-At it's core, `ds9` was built on a highly modular architecture using 
-the highly flexible [`Tcl/Tk`](https://www.tcl.tk/), _tickle tee kay_, 
-scripting language and GUI.
 
 
 
