@@ -12,7 +12,7 @@ It is a powerful display tool for all common types of astrophysical data
 and provides a rich set of features unavailable other packages.
 
 It is also highly flexible and configurable (ie _hackable_) for individual 
-users needs.  In fact it was designed and built with that level of 
+users' needs.  In fact it was designed and built with that level of 
 flexibility in mind.
 
 This repro contains some (only some) of my own personal ds9 hacks. 
@@ -23,12 +23,12 @@ It contains code to
    It also makes it each to switch image scaling (log, linear, sqrt)
    and provides quick access to smoothing, contours, and frame matching.
 
-2. Includes new color lookup tables adapted from the [ImageJ](https://imagej.nih.gov/ij/)
-   and [XImage](https://heasarc.gsfc.nasa.gov/xanadu/ximage/ximage.html)
+2. Includes new color maps (look up tables, LUT) adapted from 
+   the [ImageJ](https://imagej.nih.gov/ij/) and 
+   [XImage](https://heasarc.gsfc.nasa.gov/xanadu/ximage/ximage.html)
    projects.  The new colors lookup tables use icons instead of names 
-   in the new menus.
+   in new sub-menus.
    
-
 
 ## Quick start
 
@@ -69,6 +69,7 @@ loads the new color lookup tables, and adds new analysis tasks.
 
 ![design.png](design.png)
 
+### Buttons
 
 The buttons are created using a set of `Tcl/Tk` scripts.  Each of the scripts 
 creates a set of buttons:
@@ -80,6 +81,18 @@ Each of the scripts has comments describing how, in general, it works.
 For specific `ds9` functions, you will need to go diving into the 
 `ds9` source code.
 
+
+#### The `ds9Cmd` command
+
+One of the key elements of these scripts is the use of the `ds9Cmd` command.
+I do not believe it is actually documented anywhere, but the jist is that
+it takes a string argument which is parsed the same way the `ds9` command line
+arguments are parsed.  So anything that can be done on the command line 
+can be done using the `ds9Cmd` command.  
+
+
+### Color Maps
+
 The color maps are loaded via the `extra_lut.tcl` script.  That script
 includes a modified version of the original `ds9` `load_color_map` routine
 which 
@@ -89,7 +102,8 @@ which
 
 The _XImage_ and _ImageJ_ LUTs are taken from public domain software package.  
 I have many more LUTs in my own personal collection but they require 
-different licensing that I'd rather not deal with.
+different licensing that I'd rather not deal with.  I have provided the
+full set of these LUTs but the scripts only load a subset.  
 
 
 ## Versions
