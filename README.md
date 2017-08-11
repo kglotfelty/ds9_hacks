@@ -36,7 +36,6 @@ It contains code to
 cd $HOME
 
 git clone https://github.com/kglotfelty/ds9_hacks/
-cd ds9_hacks
 ln -s $HOME/ds9_hacks/.ds9.ini ./
 ```
 
