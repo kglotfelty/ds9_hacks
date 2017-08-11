@@ -11,7 +11,7 @@ professional and amateur astronomers world wide.
 It is a powerful display tool for all common types of astrophysical data
 and provides a rich set of features unavailable other packages.
 
-It is also highly flexible and adaptable (ie _hackable_) for individual 
+It is also highly flexible and configurable (ie _hackable_) for individual 
 users needs.  In fact it was designed and built with that level of 
 flexibility in mind.
 
@@ -23,7 +23,8 @@ It contains code to
    It also makes it each to switch image scaling (log, linear, sqrt)
    and provides quick access to smoothing, contours, and frame matching.
 
-2. Includes new color lookup tables adapted from the ImageJ and XImage
+2. Includes new color lookup tables adapted from the [ImageJ](https://imagej.nih.gov/ij/)
+   and [XImage](https://heasarc.gsfc.nasa.gov/xanadu/ximage/ximage.html)
    projects.  The new colors lookup tables use icons instead of names 
    in the new menus.
    
@@ -39,27 +40,45 @@ cd ds9_hacks
 ln -s $HOME/ds9_hacks/.ds9.ini ./
 ```
 
-You can move the `ds9_hacks` directory to whatever location you want; you just need to modify the `.ds9.ini` file to point
-to it.
+You can move the `ds9_hacks` directory to whatever location you want; 
+you just need to modify the `.ds9.ini` file to point to it.  
 
 ```tcl
 set ds9_hack_root "$env(HOME)/ds9_hacks"
 ```
 
+You will also need to modify the `dashes.ans` to point to the new location.
+
 
 ## How does it work?
 
 
+Under the hood, the `ds9` user interface (GUI) is written in `Tcl/Tk` (pronounced
+_tickle tee kay_).  `ds9` was originally developed as a demonstration of a 
+set of `Tcl/Tk`  widgets as discussed in
+[SAOTk: Tcl/Tk Widgets for Imaging and Data Visualization](http://www.adass.org/adass/proceedings/adass98/joyew/).
+
+It was built on top of a set of modular components and meant to be easily
+adaptable.  There are various entry points into the application.  The
+one used by this set of hacks is the `.ds9.ini` file.
+
 The `$HOME/.ds9.ini` file is automatically loaded by `ds9` when it starts.  
-This script then loads the other scripts to create the various buttons,
+It is a `Tcl/Tk` script which can do whatever the user desires.  The
+version of the script in this repro loads the other scripts to create the various buttons,
 loads the new color lookup tables, and adds new analysis tasks.
 
 ![design.png](design.png)
 
 
+The buttons are created using a set of `Tcl/Tk` scripts.  Each of the scripts 
+creates a set of buttons:
+
 ![ds9_buttons.png](ds9_buttons.png)
 
 
+Each of the scripts has comments describing how, in general, it works.  
+For specific `ds9` functions, you will need to go diving into the 
+`ds9` source code.
 
 
 
@@ -77,7 +96,6 @@ new button bar does not display correctly when the user switches to the
 
 
 
-[SAOTk: Tcl/Tk Widgets for Imaging and Data Visualization](http://www.adass.org/adass/proceedings/adass98/joyew/)
 
 At the time, `ds9` was only being developed as a technology demonstration 
 application.  
