@@ -32,7 +32,6 @@ It contains code to
 ## Quick start
 
 ```bash
-
 cd $HOME
 
 git clone https://github.com/kglotfelty/ds9_hacks/
@@ -40,14 +39,27 @@ cd ds9_hacks
 ln -s $HOME/ds9_hacks/.ds9.ini ./
 ```
 
-The `$HOME/.ds9.ini` file is automatically loaded by `ds9` when it starts.
-
 You can move the `ds9_hacks` directory to whatever location you want; you just need to modify the `.ds9.ini` file to point
 to it.
 
 ```tcl
 set ds9_hack_root "$env(HOME)/ds9_hacks"
 ```
+
+
+## How does it work?
+
+
+The `$HOME/.ds9.ini` file is automatically loaded by `ds9` when it starts.  
+This script then loads the other scripts to create the various buttons,
+loads the new color lookup tables, and adds new analysis tasks.
+
+![design.png](design.png)
+
+
+![ds9_buttons.png](ds9_buttons.png)
+
+
 
 
 
