@@ -1,4 +1,4 @@
-# Hacking SAOImageDS9
+# Customizing SAOImageDS9
 
 
 The [SAOImage ds9](http://ds9.si.edu) 
