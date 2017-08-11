@@ -60,7 +60,7 @@ set of `Tcl/Tk`  widgets as discussed in
 
 It was built on top of a set of modular components and meant to be easily
 adaptable.  There are various entry points into the application.  The
-one used by this set of hacks is the `.ds9.ini` file.
+one used by this set of hacks is the [`.ds9.ini`](http://ds9.si.edu/doc/ref/file.html#StartupFile) file.
 
 The `$HOME/.ds9.ini` file is automatically loaded by `ds9` when it starts.  It is
 a `Tcl/Tk` script which can do whatever the user desires.  The
