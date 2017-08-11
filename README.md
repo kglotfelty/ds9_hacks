@@ -1,5 +1,7 @@
 # Customizing SAOImageDS9
 
+![ds9_ui.png](ds9_ui.png)
+
 
 The [SAOImage ds9](http://ds9.si.edu) 
 application, aka [`ds9`](https://github.com/SAOImageDS9/SAOImageDS9), 
