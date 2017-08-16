@@ -32,5 +32,7 @@ source $ds9_hack_root/image_scale.tcl
 source $ds9_hack_root/image_processing.tcl
 ## ----------------------------------------
 
-#source $ds9_hack_root/ciao_commands.tcl
+if { [info exists env(ASCDS_INSTALL)] } {
+    source $ds9_hack_root/ciao_commands.tcl
+}
 
