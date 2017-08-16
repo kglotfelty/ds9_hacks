@@ -23,5 +23,13 @@ proc MyLoadColormapFile { myid dir filename extn} {
 
 $ds9(mb).color add separator
 
-source $ds9_hack_root/LUT/ximage.tcl
-source $ds9_hack_root/LUT/imagej.tcl
+
+foreach c [list "ximage" "imagej" "neota" "kst" "ncar" "mpl" "cet" "cmocean"] {
+    set lut $ds9_hack_root/LUT/$c.tcl
+    puts $lut
+    if { [file exists $lut] == 1 } {
+        source $lut
+    }
+
+}
+
