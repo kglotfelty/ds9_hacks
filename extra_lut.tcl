@@ -23,7 +23,6 @@ $ds9(mb).color add separator
 # Not all these are available on my github repro
 foreach c [list "ximage" "imagej" "neota" "kst" "ncar" "mpl" "cet" "cmocean"] {
     set lut $ds9_hack_root/LUT/$c.tcl
-    puts $lut
     if { [file exists $lut] == 1 } {
         source $lut
     }
