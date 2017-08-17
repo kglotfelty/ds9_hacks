@@ -15,22 +15,20 @@ gap=sys.argv[3]
 cmd="xpaget {0} regions selected -format ds9".format( myds9 )
 pss = sp.Popen( cmd, shell=True, stdout=sp.PIPE)
 _msg = pss.communicate()
-
-
 msg=_msg[0].split("\n")
 
-# Skip the header lines.  Used to be 4, now only 3.
+
+# Skip the header lines.  
 for ii,hh in enumerate(msg):
     if hh.startswith("global "):
         break
 
 hl = ii+1
-
-
-
 hdr=msg[0:hl]
 
-for ll in msg[hl+1:-1]:
+
+
+for ll in msg[hl:]:
     if ll.count("#") == 0:
         cmt = " # " 
     else:
@@ -45,10 +43,9 @@ for ll in msg[hl+1:-1]:
     else:
         ll=ll.replace( m.group(0), "dashlist={0} {1}".format(line,gap))
     hdr.append(ll)
-oo=""
-for h in hdr:
-    oo += h + "\n"
 
+
+oo = "\n".join(hdr)
 
 
 cmd2 = "xpaset -p {0} regions delete select".format(myds9)
