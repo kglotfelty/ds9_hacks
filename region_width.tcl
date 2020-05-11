@@ -19,14 +19,14 @@ proc my_change_width { plusminus } {
 }
 
 
-frame $ds9(main).quick.size 
+ttk::frame $ds9(main).quick.size 
 grid $ds9(main).quick.size -row 0 -column $atcol -padx 5
 
 incr atcol
-entry $ds9(main).quick.size.at -textvariable marker(width) -state readonly -width 3 -takefocus 0
-button $ds9(main).quick.size.plus -text {+} -takefocus 0 -command {my_change_width 1} \
+ttk::entry $ds9(main).quick.size.at -textvariable marker(width) -state readonly -width 3 -takefocus 0
+ttk::button $ds9(main).quick.size.plus -text {+} -takefocus 0 -command {my_change_width 1} \
     -image [image create photo -file "$ds9_hack_root/UI/plus.png"]
-button $ds9(main).quick.size.mins -text {-} -takefocus 0 -command {my_change_width -1} \
+ttk::button $ds9(main).quick.size.mins -text {-} -takefocus 0 -command {my_change_width -1} \
     -image [image create photo -file "$ds9_hack_root/UI/minus.png"]
 
 grid $ds9(main).quick.size.plus -row 0 -column 2

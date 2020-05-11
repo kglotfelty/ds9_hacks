@@ -2,7 +2,7 @@
 
 set atcol 0
 
-frame $ds9(main).quick
+ttk::frame $ds9(main).quick
 grid configure $ds9(main).quick -row 3 -column $atcol -columnspan 3 -sticky we
 incr atcol
 

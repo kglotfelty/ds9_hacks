@@ -8,25 +8,25 @@ proc my_change_color {color} {
 }
 
 
-frame $ds9(main).quick.colors
+ttk::frame $ds9(main).quick.colors
 grid $ds9(main).quick.colors -row 0 -column $atcol -padx 5
 incr atcol
 
-button $ds9(main).quick.colors.blk -text {Back} -takefocus 0 -command { my_change_color black } \
+ttk::button $ds9(main).quick.colors.blk -text {Back} -takefocus 0 -command { my_change_color black } \
     -image [image create photo -file "$ds9_hack_root/UI/blk.png"]
-button $ds9(main).quick.colors.wht -text {Back} -takefocus 0 -command { my_change_color white } \
+ttk::button $ds9(main).quick.colors.wht -text {Back} -takefocus 0 -command { my_change_color white } \
     -image [image create photo -file "$ds9_hack_root/UI/wht.png"]
-button $ds9(main).quick.colors.red -text {Back} -takefocus 0 -command { my_change_color red } \
+ttk::button $ds9(main).quick.colors.red -text {Back} -takefocus 0 -command { my_change_color red } \
     -image [image create photo -file "$ds9_hack_root/UI/red.png"]
-button $ds9(main).quick.colors.grn -text {Back} -takefocus 0 -command { my_change_color green } \
+ttk::button $ds9(main).quick.colors.grn -text {Back} -takefocus 0 -command { my_change_color green } \
     -image [image create photo -file "$ds9_hack_root/UI/grn.png"]
-button $ds9(main).quick.colors.blu -text {Back} -takefocus 0 -command { my_change_color blue } \
+ttk::button $ds9(main).quick.colors.blu -text {Back} -takefocus 0 -command { my_change_color blue } \
     -image [image create photo -file "$ds9_hack_root/UI/blu.png"]
-button $ds9(main).quick.colors.cyn -text {Back} -takefocus 0 -command { my_change_color cyan } \
+ttk::button $ds9(main).quick.colors.cyn -text {Back} -takefocus 0 -command { my_change_color cyan } \
     -image [image create photo -file "$ds9_hack_root/UI/cyn.png"]
-button $ds9(main).quick.colors.pur -text {Back} -takefocus 0 -command { my_change_color magenta } \
+ttk::button $ds9(main).quick.colors.pur -text {Back} -takefocus 0 -command { my_change_color magenta } \
     -image [image create photo -file "$ds9_hack_root/UI/pur.png"]
-button $ds9(main).quick.colors.yel -text {Back} -takefocus 0 -command { my_change_color yellow } \
+ttk::button $ds9(main).quick.colors.yel -text {Back} -takefocus 0 -command { my_change_color yellow } \
     -image [image create photo -file "$ds9_hack_root/UI/yel.png"]
 
 

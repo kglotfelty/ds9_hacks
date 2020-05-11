@@ -1,6 +1,6 @@
 ds9Cmd "-analysis $ds9_hack_root/dashes.ans"
 
-frame $ds9(main).quick.dashes
+ttk::frame $ds9(main).quick.dashes
 grid $ds9(main).quick.dashes -row 0 -column $atcol -padx 5
 incr atcol
 
