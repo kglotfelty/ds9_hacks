@@ -46,7 +46,7 @@ you just need to modify the `.ds9.ini` file to point to it.
 set ds9_hack_root "$env(HOME)/ds9_hacks"
 ```
 
-You will also need to modify the `dashes.ans` to point to the new location.
+You will also need to modify the `region_dash.tcl` to point to the new location.
 
 
 ## How does it work?
