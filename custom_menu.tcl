@@ -23,7 +23,7 @@ source $ds9_hack_root/region_layer.tcl
 source $ds9_hack_root/region_color.tcl
 # ----------------------------------------
 
-source $ds9_hack_root/region_dash.tcl
+#source $ds9_hack_root/region_dash.tcl
 # ----------------------------------------
 
 source $ds9_hack_root/image_scale.tcl
