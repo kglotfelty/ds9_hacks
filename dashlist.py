@@ -15,7 +15,7 @@ gap=sys.argv[3]
 cmd="xpaget {0} regions selected -format ds9".format( myds9 )
 pss = sp.Popen( cmd, shell=True, stdout=sp.PIPE)
 _msg = pss.communicate()
-msg=_msg[0].split("\n")
+msg=_msg[0].decode().split("\n")
 
 
 # Skip the header lines.  
@@ -54,6 +54,6 @@ ps2.communicate()
 
 cmd2 = "xpaset {0} regions".format(myds9)
 ps2 = sp.Popen( cmd2, shell=True, stdin=sp.PIPE )
-ps2.communicate( oo )
+ps2.communicate( oo.encode("ascii") )
 
     
