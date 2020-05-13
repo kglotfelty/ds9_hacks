@@ -6,13 +6,13 @@ ttk::button $ds9(main).quick.ciao.pi -text {P} -takefocus 0 -command {ds9Cmd "-a
    -image [image create photo -file "$ds9_hack_root/UI/spectrum.png"]
 ttk::button $ds9(main).quick.ciao.time -text {T} -takefocus 0 -command {ds9Cmd "-analysis task TIME"} \
    -image [image create photo -file "$ds9_hack_root/UI/lightcurve.png"]
-ttk::button $ds9(main).quick.ciao.glvary -text {G} -takefocus 0 -command {ds9Cmd "-analysis task {G-L Vary}"} \
+ttk::button $ds9(main).quick.ciao.glvary -text {G} -takefocus 0 -command {ds9Cmd "-analysis task {Gregory-Loredo Lightcurve}"} \
    -image [image create photo -file "$ds9_hack_root/UI/glvary.png"]
 
-ttk::button $ds9(main).quick.ciao.coords -text {E} -takefocus 0 -command {ds9Cmd "-analysis task {dmstat (no centroid)}"} \
+ttk::button $ds9(main).quick.ciao.coords -text {E} -takefocus 0 -command {ds9Cmd "-analysis task {Statistics (dmstat)}"} \
    -image [image create photo -file "$ds9_hack_root/UI/stats.png"]
 
-ttk::button $ds9(main).quick.ciao.stats -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {All}"} \
+ttk::button $ds9(main).quick.ciao.stats -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {Chandra Coordinates}"} \
    -image [image create photo -file "$ds9_hack_root/UI/coords.png"]
 
 grid $ds9(main).quick.ciao.pi -row 0 -column 0

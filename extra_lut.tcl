@@ -10,7 +10,7 @@ proc MyLoadColormapFile { myid dir filename extn} {
         colorbar load "\{$lfile\}"
         set id [colorbar get id]
         set colorbar(map) [colorbar get name]
-        set max_kjg_color $id
+        #set max_kjg_color $id
         $myid add radiobutton \
             -label "$colorbar(map)" \
             -variable colorbar(map) -command "ChangeColormapID $id"  \
