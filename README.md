@@ -118,6 +118,19 @@ in any way connected with the `SAOImageDS9` project, it's sponsors,
 nor anything related to my day job.   All opinions, comments, text, etc are
 mine alone.
 
+## Not alone
+
+I am **NOT** the first person to come up with these kinds of `ds9` hacks.
+Users around the globe have been tweaking the interface, adding
+their own custom analysis menu commands, and setting up live
+real-time displays for years.  For example 
+[Extending and Customising DS9](https://ui.adsabs.harvard.edu/abs/2005ASPC..347..114C/abstract),
+Clark, Allen, and Joye.  
+
+
+
+
+
 
 
 
