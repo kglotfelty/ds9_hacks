@@ -1,3 +1,14 @@
+# There is no method to change the dashes in ds9(yet); but you can
+# set the dashlist when you load a ds9-format region file.
+#
+# This hack uses a python 3 script to retrieve the regions, and 
+# change the selected region's dashlist setting, and then reload
+# the modified regions.  [It's a hack, but all of this is, right!]
+#
+# Users therefore need to have python in their path, and need to have
+# xpa running.  If you get an 'xpaget' or 'xpaset' error message, you
+# don't.
+#
 
 global regdash_icons
 set regdash_icons [list [image create photo -file "$ds9_hack_root/UI/1_0.png" ] \
@@ -30,8 +41,10 @@ set regdash_icons [list [image create photo -file "$ds9_hack_root/UI/1_0.png" ] 
 proc my_change_dash { nidx ndash ngap } {
   global ds9
   global regdash_icons
-  global env  
-  exec $env(HOME)/ds9_hacks/dashlist.py $ds9(title) $ndash $ngap &
+  global ds9_hack_root
+
+  # '&' to put in background so xpa doesn't hang
+  exec $ds9_hack_root/dashlist.py $ds9(title) $ndash $ngap &
   $ds9(main).quick.dashes.at configure -text $nidx \
     -image [lindex $regdash_icons $nidx]
 }
@@ -46,8 +59,16 @@ ttk::menubutton $ds9(main).quick.dashes.at -menu $ds9(main).quick.dashes.at.m \
   
 menu $ds9(main).quick.dashes.at.m -tearoff 0
 
+# The dashlist value is a tuple -- length of the line, length of the gap.
+# I can't set the dashlist "gap" to 0 but I can set the line length to
+# a really big number - that have same affect as drawing a solid line.
+
 $ds9(main).quick.dashes.at.m add command -label "1" -command "my_change_dash 0 32767 1" \
     -image [lindex $regdash_icons 0]
+
+# Surely there is a better array|list|loop mechanism I could use here,
+# but it works.
+
 $ds9(main).quick.dashes.at.m add command -label "2" -command "my_change_dash 1 2 2" \
     -image [lindex $regdash_icons 1]
 $ds9(main).quick.dashes.at.m add command -label "3" -command "my_change_dash 2 2 4" \
@@ -107,27 +128,4 @@ $ds9(main).quick.dashes.at.m add command -label "4" -command "my_change_dash 25 
 grid $ds9(main).quick.dashes.at -row 0 -column 0
 
 
-
-
-
-
-
-
-
-
-#~ # Note: & below to put in background so xpa isn't blocked
-
-#~ button $ds9(main).quick.dashes.8x3 -text {8x3} -takefocus 0 -command {exec $env(HOME)/ds9_hacks/dashlist.py $ds9(title) 8 3 &} \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/8_3.png"] -borderwidth 0 -pady 0
-#~ button $ds9(main).quick.dashes.2x2 -text {8x3} -takefocus 0 -command {exec $env(HOME)/ds9_hacks/dashlist.py $ds9(title) 2 2 &} \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/2_2.png"] -borderwidth 0 -pady 0
-#~ button $ds9(main).quick.dashes.10x4 -text {8x3} -takefocus 0 -command {exec $env(HOME)/ds9_hacks/dashlist.py $ds9(title) 10 4 &} \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/10_4.png"] -borderwidth 0 -pady 0
-#~ button $ds9(main).quick.dashes.5x5 -text {8x3} -takefocus 0 -command {exec $env(HOME)/ds9_hacks/dashlist.py $ds9(title) 5 5 &} \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/5_5.png"] -borderwidth 0 -pady 0
-
-#~ grid $ds9(main).quick.dashes.8x3 -row 0 -column 0
-#~ grid $ds9(main).quick.dashes.2x2 -row 1 -column 0
-#~ grid $ds9(main).quick.dashes.10x4 -row 2 -column 0
-#~ grid $ds9(main).quick.dashes.5x5 -row 3 -column 0
 
