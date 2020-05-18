@@ -5,7 +5,7 @@ ttk::button $ds9(main).quick.imgstuff.smth -text {S} -takefocus 0 -command {ds9C
    -image [image create photo -file "$ds9_hack_root/UI/smooth.png"]
 ttk::button $ds9(main).quick.imgstuff.cntr -text {C} -takefocus 0 -command {ds9Cmd "-contour"} \
    -image [image create photo -file "$ds9_hack_root/UI/contour.png"]
-ttk::button  $ds9(main).quick.imgstuff.wcs -text {WCS} -takefocus 0 -command {ds9Cmd "-match frames wcs" } \
+ttk::button  $ds9(main).quick.imgstuff.wcs -text {WCS} -takefocus 0 -command {ds9Cmd "-match frame wcs" } \
    -image [image create photo -file "$ds9_hack_root/UI/match.png"]
 
 grid $ds9(main).quick.imgstuff.smth -row 0 -column 0 
