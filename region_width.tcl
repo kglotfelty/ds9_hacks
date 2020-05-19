@@ -24,7 +24,7 @@ incr atcol
 
 ttk::menubutton $ds9(main).quick.size.at -menu $ds9(main).quick.size.at.m \
   -text "Region Width" \
-  -image [lindex $regwidth_icons 1]
+  -image [lindex $regwidth_icons 1] -takefocus 0
   
 menu $ds9(main).quick.size.at.m -tearoff 0
 

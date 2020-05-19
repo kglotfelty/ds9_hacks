@@ -55,7 +55,7 @@ incr atcol
 
 ttk::menubutton $ds9(main).quick.dashes.at -menu $ds9(main).quick.dashes.at.m \
   -text "Region Dashes" \
-  -image [lindex $regdash_icons 0]
+  -image [lindex $regdash_icons 0] -takefocus 0
   
 menu $ds9(main).quick.dashes.at.m -tearoff 0
 
