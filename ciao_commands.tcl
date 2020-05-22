@@ -9,15 +9,19 @@ ttk::button $ds9(main).quick.ciao.time -text {T} -takefocus 0 -command {ds9Cmd "
 ttk::button $ds9(main).quick.ciao.glvary -text {G} -takefocus 0 -command {ds9Cmd "-analysis task {Gregory-Loredo Lightcurve}"} \
    -image [image create photo -file "$ds9_hack_root/UI/glvary.png"]
 
-ttk::button $ds9(main).quick.ciao.coords -text {E} -takefocus 0 -command {ds9Cmd "-analysis task {Statistics (dmstat)}"} \
+ttk::button $ds9(main).quick.ciao.stats -text {E} -takefocus 0 -command {ds9Cmd "-analysis task {Statistics (dmstat)}"} \
    -image [image create photo -file "$ds9_hack_root/UI/stats.png"]
 
-ttk::button $ds9(main).quick.ciao.stats -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {Chandra Coordinates}"} \
+ttk::button $ds9(main).quick.ciao.flux -text {F} -takefocus 0 -command {ds9Cmd "-analysis task {Net Counts}"} \
+   -image [image create photo -file "$ds9_hack_root/UI/flux.png"]
+
+ttk::button $ds9(main).quick.ciao.coords -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {Chandra Coordinates}"} \
    -image [image create photo -file "$ds9_hack_root/UI/coords.png"]
 
 grid $ds9(main).quick.ciao.pi -row 0 -column 0
 grid $ds9(main).quick.ciao.time -row 0 -column 1
 grid $ds9(main).quick.ciao.glvary -row 0 -column 2
-grid $ds9(main).quick.ciao.coords -row 0 -column 3
-grid $ds9(main).quick.ciao.stats -row 0 -column 4
+grid $ds9(main).quick.ciao.stats -row 0 -column 3
+grid $ds9(main).quick.ciao.flux -row 0 -column 4
+grid $ds9(main).quick.ciao.coords -row 0 -column 5
 
