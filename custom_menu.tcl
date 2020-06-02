@@ -2,8 +2,11 @@
 
 set atcol 0
 
-ttk::frame $ds9(main).quick
-grid configure $ds9(main).quick -row 3 -column $atcol -columnspan 3 -sticky we
+ttk::frame $ds9(main).hack
+grid configure $ds9(main).hack -row 3 -column $atcol -columnspan 3 -sticky we
+
+ttk::frame $ds9(main).hack.quick
+pack $ds9(main).hack.quick -anchor w
 incr atcol
 
 # ----------------------------------------
@@ -36,4 +39,17 @@ source $ds9_hack_root/image_processing.tcl
 if { [info exists env(ASCDS_INSTALL)] } {
     source $ds9_hack_root/ciao_commands.tcl
 }
+
+## ------------------------
+
+set atcol 0
+
+ttk::frame $ds9(main).hack.quick_two 
+pack $ds9(main).hack.quick_two -side top -anchor w -pady 2
+incr atcol
+
+source $ds9_hack_root/frame_buttons.tcl
+source $ds9_hack_root/zoom_buttons.tcl
+source $ds9_hack_root/bin_buttons.tcl
+
 
