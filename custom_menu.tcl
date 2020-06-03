@@ -51,5 +51,6 @@ incr atcol
 source $ds9_hack_root/frame_buttons.tcl
 source $ds9_hack_root/zoom_buttons.tcl
 source $ds9_hack_root/bin_buttons.tcl
+source $ds9_hack_root/lut.tcl
 
 
