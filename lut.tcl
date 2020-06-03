@@ -13,7 +13,7 @@ set lutbar [list "$ds9_hack_root/LUT/DS9/grey.png" \
                  "$ds9_hack_root/LUT/ImageJ/heart.png" \
                  "$ds9_hack_root/LUT/XImage/purple3.png" \
                  "$ds9_hack_root/LUT/Neota/neota_sunset-in-atlantis.png" \
-                 "$ds9_hack_root/LUT/ImageJ/005-randompng" \
+                 "$ds9_hack_root/LUT/ImageJ/005-random.png" \
                  "$ds9_hack_root/LUT/ImageJ/16_ramps.png" \
                  "$ds9_hack_root/LUT/ImageJ/blue_orange.png" \
                  "$ds9_hack_root/LUT/ImageJ/icool.png" \
