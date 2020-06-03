@@ -30,16 +30,20 @@ proc my_change_lut {newval} {
 
 
 foreach {i} $lutbar {
-    set oi [image create photo boo -file $i]
 
-    image create photo moo$i -width 200 -height 16
-    set goo [moo$i copy boo -zoom 2]
-    lappend lutbar_icons moo$i
+    if { [file exists $i] == 1 } {
 
-    set f [split $i "/"]
-    set g [lindex $f end]
-    set gg [split $g .]
-    lappend lutbar_names [lindex $gg 0]
+        set oi [image create photo boo -file $i]
+
+        image create photo moo$i -width 200 -height 16
+        set goo [moo$i copy boo -zoom 2]
+        lappend lutbar_icons moo$i
+
+        set f [split $i "/"]
+        set g [lindex $f end]
+        set gg [split $g .]
+        lappend lutbar_names [lindex $gg 0]
+    }
     
 }
 
@@ -58,7 +62,7 @@ ttk::menubutton $ds9(main).hack.quick_two.lut.at -menu $ds9(main).hack.quick_two
 menu $ds9(main).hack.quick_two.lut.at.m -tearoff 0
 
 
-for {set i 0} {$i < [llength $lutbar]} {incr i} {
+for {set i 0} {$i < [llength $lutbar_icons]} {incr i} {
 
 $ds9(main).hack.quick_two.lut.at.m add command -label $i \
     -command "my_change_lut $i" \

@@ -49,8 +49,9 @@ pack $ds9(main).hack.quick_two -side top -anchor w -pady 2
 incr atcol
 
 source $ds9_hack_root/frame_buttons.tcl
-source $ds9_hack_root/zoom_buttons.tcl
-source $ds9_hack_root/bin_buttons.tcl
 source $ds9_hack_root/lut.tcl
+source $ds9_hack_root/bin_buttons.tcl
+source $ds9_hack_root/block_buttons.tcl
+source $ds9_hack_root/zoom_buttons.tcl
 
 
