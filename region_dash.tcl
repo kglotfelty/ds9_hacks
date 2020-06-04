@@ -38,6 +38,21 @@ set regdash_icons [list [image create photo -file "$ds9_hack_root/UI/1_0.png" ] 
                         [image create photo -file "$ds9_hack_root/UI/10_8.png" ] \
                         [image create photo -file "$ds9_hack_root/UI/10_10.png" ] ]
 
+
+
+proc make_rd_button_image { newval } {
+  global ds9
+  global regdash_icons
+  
+  image create photo rd_retval -height 22 -width 22
+  set curimg [lindex $regdash_icons $newval]
+  
+  rd_retval copy $curimg -from 0 0 -to 0 5
+  return rd_retval
+}
+
+
+
 proc my_change_dash { nidx ndash ngap } {
   global ds9
   global regdash_icons
@@ -46,7 +61,7 @@ proc my_change_dash { nidx ndash ngap } {
   # '&' to put in background so xpa doesn't hang
   exec $ds9_hack_root/dashlist.py $ds9(title) $ndash $ngap &
   $ds9(main).hack.quick.dashes.at configure -text $nidx \
-    -image [lindex $regdash_icons $nidx]
+    -image [make_rd_button_image $nidx]
 }
 
 ttk::frame $ds9(main).hack.quick.dashes 
@@ -55,7 +70,7 @@ incr atcol
 
 ttk::menubutton $ds9(main).hack.quick.dashes.at -menu $ds9(main).hack.quick.dashes.at.m \
   -text "Region Dashes" \
-  -image [lindex $regdash_icons 0] -takefocus 0
+  -image [make_rd_button_image 0] -takefocus 0
   
 menu $ds9(main).hack.quick.dashes.at.m -tearoff 0
 
