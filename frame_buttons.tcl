@@ -28,6 +28,15 @@ incr atcol
 
 
 
+ttk::button $ds9(main).hack.quick_two.frames.add -text {First} -takefocus 0 \
+    -command {ds9Cmd "-frame new"} \
+    -image [image create photo -file "$ds9_hack_root/UI/frame_add.png"] 
+
+ttk::button $ds9(main).hack.quick_two.frames.del -text {First} -takefocus 0 \
+    -command {ds9Cmd "-frame delete"} \
+    -image [image create photo -file "$ds9_hack_root/UI/frame_del.png"] 
+
+
 ttk::button $ds9(main).hack.quick_two.frames.first -text {First} -takefocus 0 \
     -command {ds9Cmd "-frame first"} \
     -image [image create photo -file "$ds9_hack_root/UI/frame_first.png"] 
@@ -57,18 +66,6 @@ $ds9(main).hack.quick_two.frames.at.m add command -label "Blink" \
     -image [lindex $frame_icons 2] 
 
 
-
-#~ ttk::button $ds9(main).hack.quick_two.frames.stop -text {First} -takefocus 0 \
-    #~ -command {ds9Cmd "-blink no"} \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/frame_stop.png"] 
-
-#~ ttk::button $ds9(main).hack.quick_two.frames.blink -text {First} -takefocus 0 \
-    #~ -command {ds9Cmd "-blink yes"} \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/frame_blink.png"] 
-
-
-
-
 ttk::button $ds9(main).hack.quick_two.frames.next -text {First} -takefocus 0 \
     -command {ds9Cmd "-frame next"} \
     -image [image create photo -file "$ds9_hack_root/UI/frame_next.png"] 
@@ -77,15 +74,11 @@ ttk::button $ds9(main).hack.quick_two.frames.last -text {First} -takefocus 0 \
     -command {ds9Cmd "-frame last"} \
     -image [image create photo -file "$ds9_hack_root/UI/frame_last.png"] 
 
-grid $ds9(main).hack.quick_two.frames.first -row 0 -column 0
-grid $ds9(main).hack.quick_two.frames.prev -row 0 -column 1
 
-grid $ds9(main).hack.quick_two.frames.at -row 0 -column 2
-
-
-#~ grid $ds9(main).hack.quick_two.frames.stop -row 0 -column 2
-#~ grid $ds9(main).hack.quick_two.frames.blink -row 0 -column 3
-
-
-grid $ds9(main).hack.quick_two.frames.next -row 0 -column 4
-grid $ds9(main).hack.quick_two.frames.last -row 0 -column 5
+grid $ds9(main).hack.quick_two.frames.add -row 0 -column 0
+grid $ds9(main).hack.quick_two.frames.del -row 0 -column 1
+grid $ds9(main).hack.quick_two.frames.first -row 0 -column 2
+grid $ds9(main).hack.quick_two.frames.prev -row 0 -column 3
+grid $ds9(main).hack.quick_two.frames.at -row 0 -column 4
+grid $ds9(main).hack.quick_two.frames.next -row 0 -column 5
+grid $ds9(main).hack.quick_two.frames.last -row 0 -column 6
