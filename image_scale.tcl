@@ -32,17 +32,17 @@ ds9Cmd "-scale log"
  
 menu $ds9(main).hack.quick.scale.at.m -tearoff 0
 
-$ds9(main).hack.quick.scale.at.m add command -label "1" \
+$ds9(main).hack.quick.scale.at.m add command -label "Log" \
     -command {my_change_scale 0 log} \
-    -image [lindex $scale_icons 0]
+    -image [lindex $scale_icons 0] -compound left
 
-$ds9(main).hack.quick.scale.at.m add command -label "1" \
+$ds9(main).hack.quick.scale.at.m add command -label "Linear" \
     -command {my_change_scale 1 linear} \
-    -image [lindex $scale_icons 1]
+    -image [lindex $scale_icons 1] -compound left
 
-$ds9(main).hack.quick.scale.at.m add command -label "1" \
+$ds9(main).hack.quick.scale.at.m add command -label "Power" \
     -command {my_change_scale 2 pow} \
-    -image [lindex $scale_icons 2]
+    -image [lindex $scale_icons 2] -compound left
 
 
 grid $ds9(main).hack.quick.scale.at -row 0 -column 0
