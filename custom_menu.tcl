@@ -11,6 +11,9 @@ incr atcol
 
 ## ------------------------
 
+
+source $ds9_hack_root/edit_menu.tcl
+
 source $ds9_hack_root/region_shapes.tcl
 source $ds9_hack_root/region_width.tcl
 source $ds9_hack_root/region_dash.tcl
