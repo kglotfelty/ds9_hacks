@@ -1,6 +1,4 @@
 
-set ds9_hack_root "/home/kjg/ds9_hacks"
-
 global lutbar_icons
 global lutbar_names
 set lutbar_icons {}
