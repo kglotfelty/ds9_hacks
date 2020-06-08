@@ -1,32 +1,29 @@
 
 global x11_colors
 global color_icons
+
 set x11_colors [list \
-"red"                 "antiquewhite"        "aquamarine"          "azure"               "beige" \
-"bisque"              "lightyellow"         "blanchedalmond"      "darkolivegreen"      "blueviolet" \
-"brown"               "green"               "cadetblue"           "chartreuse"          "chocolate" \
-"coral"               "cornflowerblue"      "cornsilk"            "dimgray"             "darkgoldenrod" \
-"darkgreen"           "darkkhaki"           "blue"                "darkorange"          "darkorchid" \
-"darksalmon"          "darkseagreen"        "darkslateblue"       "darkslategray"       "darkturquoise" \
-"darkviolet"          "deeppink"            "deepskyblue"         "cyan"                "dodgerblue" \
-"floralwhite"         "forestgreen"         "gainsboro"           "ghostwhite"          "gold" \
-"goldenrod"           "burlywood"           "greenyellow"         "peachpuff"           "magenta" \
-"hotpink"             "indianred"           "ivory"               "khaki"               "lavender" \
-"lavenderblush"       "lawngreen"           "lemonchiffon"        "lightblue"           "lightcoral" \
-"yellow"              "lightgoldenrod"      "lightgoldenrodyellow" "lightgray"          "lightpink" \
-"lightsalmon"         "lightseagreen"       "lightskyblue"        "lightslateblue"      "lightslategray" \
-"lightsteelblue"      "black"               "limegreen"           "linen"               "honeydew" \
-"maroon"              "mediumblue"          "midnightblue"        "mintcream"           "mistyrose" \
-"moccasin"            "navajowhite"         "white"               "oldlace"             "olivedrab" \
-"sandybrown"          "orangered"           "orchid"              "palegoldenrod"       "palegreen" \
-"paleturquoise"       "palevioletred"       "papayawhip"          "grey"                "peru" \
-"pink"                "plum"                "powderblue"          "purple"              "aliceblue" \
-"rosybrown"           "royalblue"           "saddlebrown"         "salmon"              "orange" \
-"seagreen"            "seashell"            "sienna"              "skyblue"             "slateblue" \
-"slategray"           "snow"                "springgreen"         "steelblue"           "tan" \
-"violet"              "tomato"              "turquoise"           "thistle"             "violetred" \
-"wheat"               "navyblue"            "whitesmoke"          "lightcyan"           "yellowgreen" \
-"indianred2"
+"red" "floralwhite" "mistyrose" "seashell" "snow" "linen" "oldlace" \
+"whitesmoke" "gainsboro" "lightgray" "dimgray" "green" "bisque" \
+"blanchedalmond" "papayawhip" "antiquewhite" "rosybrown" "moccasin" \
+"navajowhite" "peachpuff" "wheat" "tan" "blue" "darksalmon" "lightcoral" \
+"burlywood" "lightsalmon" "indianred2" "salmon" "sandybrown" "indianred" \
+"coral" "tomato" "cyan" "peru" "brown" "sienna" "chocolate" "goldenrod" \
+"saddlebrown" "darkgoldenrod" "darkorange" "orangered" "ivory" "magenta" \
+"lightyellow" "beige" "cornsilk" "lemonchiffon" "lightgoldenrodyellow" \
+"palegoldenrod" "khaki" "lightgoldenrod" "darkkhaki" "darkolivegreen" \
+"yellow" "greenyellow" "yellowgreen" "olivedrab" "gold" "honeydew" \
+"darkseagreen" "palegreen" "limegreen" "forestgreen" "chartreuse" \
+"black" "lawngreen" "darkgreen" "mintcream" "aquamarine" "turquoise" \
+"seagreen" "lightseagreen" "springgreen" "aliceblue" "azure" "white" \
+"lightcyan" "lightblue" "powderblue" "lightsteelblue" "lightslategray" \
+"slategray" "paleturquoise" "lightskyblue" "skyblue" "cadetblue" "grey" \
+"darkslategray" "cornflowerblue" "steelblue" "royalblue" "dodgerblue" \
+"deepskyblue" "darkturquoise" "ghostwhite" "lavender" "lightslateblue" \
+"orange" "slateblue" "darkslateblue" "midnightblue" "mediumblue" \
+"navyblue" "thistle" "plum" "orchid" "blueviolet" "purple" "violet" \
+"darkorchid" "darkviolet" "lavenderblush" "pink" "lightpink" \
+"palevioletred" "hotpink" "maroon" "violetred" "deeppink" \
 ]
 
 
@@ -110,34 +107,4 @@ for {set ii 0} { $ii < [llength $color_icons]} {incr ii} {
 }
 
 
-
-
-
-
-#~ button $ds9(main).hack.quick.colors.blk -text {Back} -relief flat -bd 0 -takefocus 0 -command { my_change_color black } \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/blk.png"] -padx 0 -pady 0 -highlightthickness 0 -overrelief flat
-#~ button $ds9(main).hack.quick.colors.wht -text {Back} -relief flat -bd 0  -takefocus 0 -command { my_change_color white } \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/wht.png"] -padx 0 -pady 0 -highlightthickness 0 -overrelief flat
-#~ button $ds9(main).hack.quick.colors.red -text {Back} -relief flat -bd 0  -takefocus 0 -command { my_change_color red } \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/red.png"] -padx 0 -pady 0 -highlightthickness 0 -overrelief flat
-#~ button $ds9(main).hack.quick.colors.grn -text {Back} -relief flat -bd 0  -takefocus 0 -command { my_change_color green } \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/grn.png"] -padx 0 -pady 0 -highlightthickness 0 -overrelief flat
-#~ button $ds9(main).hack.quick.colors.blu -text {Back} -relief flat -bd 0  -takefocus 0 -command { my_change_color blue } \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/blu.png"] -padx 0 -pady 0 -highlightthickness 0 -overrelief flat
-#~ button $ds9(main).hack.quick.colors.cyn -text {Back} -relief flat -bd 0  -takefocus 0 -command { my_change_color cyan } \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/cyn.png"] -padx 0 -pady 0 -highlightthickness 0 -overrelief flat
-#~ button $ds9(main).hack.quick.colors.pur -text {Back} -relief flat -bd 0  -takefocus 0 -command { my_change_color magenta } \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/pur.png"] -padx 0 -pady 0 -highlightthickness 0 -overrelief flat
-#~ button $ds9(main).hack.quick.colors.yel -text {Back} -relief flat -bd 0  -takefocus 0 -command { my_change_color yellow } \
-    #~ -image [image create photo -file "$ds9_hack_root/UI/yel.png"] -padx 0 -pady 0 -highlightthickness 0 -overrelief flat
-
-
-#~ grid $ds9(main).hack.quick.colors.blk -row 0 -column 0 -padx 0 -pady 0 -ipadx 0 -ipady 0
-#~ grid $ds9(main).hack.quick.colors.red -row 0 -column 1
-#~ grid $ds9(main).hack.quick.colors.grn -row 0 -column 2
-#~ grid $ds9(main).hack.quick.colors.blu -row 0 -column 3
-#~ grid $ds9(main).hack.quick.colors.wht -row 1 -column 0
-#~ grid $ds9(main).hack.quick.colors.cyn -row 1 -column 1
-#~ grid $ds9(main).hack.quick.colors.pur -row 1 -column 2
-#~ grid $ds9(main).hack.quick.colors.yel -row 1 -column 3
 
