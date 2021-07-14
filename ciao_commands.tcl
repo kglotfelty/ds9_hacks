@@ -12,11 +12,23 @@ ttk::button $ds9(main).hack.quick_three.ciao.glvary -text {G} -takefocus 0 -comm
 ttk::button $ds9(main).hack.quick_three.ciao.stats -text {E} -takefocus 0 -command {ds9Cmd "-analysis task {Statistics (dmstat)}"} \
    -image [image create photo -file "$ds9_hack_root/UI/stats.png"]
 
-ttk::button $ds9(main).hack.quick_three.ciao.flux -text {F} -takefocus 0 -command {ds9Cmd "-analysis task {Net Counts}"} \
+ttk::button $ds9(main).hack.quick_three.ciao.netcts -text {F} -takefocus 0 -command {ds9Cmd "-analysis task {Net Counts}"} \
+   -image [image create photo -file "$ds9_hack_root/UI/net.png"]
+
+ttk::button $ds9(main).hack.quick_three.ciao.flux -text {F} -takefocus 0 -command {ds9Cmd "-analysis task {Photometry (srcflux)}"} \
    -image [image create photo -file "$ds9_hack_root/UI/flux.png"]
 
 ttk::button $ds9(main).hack.quick_three.ciao.coords -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {Chandra Coordinates}"} \
    -image [image create photo -file "$ds9_hack_root/UI/coords.png"]
+
+## -- Sherpa
+
+ttk::button $ds9(main).hack.quick_three.ciao.specfit -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {Spectral Fit}"} \
+   -image [image create photo -file "$ds9_hack_root/UI/specfit.png"]
+
+ttk::button $ds9(main).hack.quick_three.ciao.imgfit -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {2D Image Fit}"} \
+   -image [image create photo -file "$ds9_hack_root/UI/imgfit.png"]
+
 
 
 #~ pfold.png
@@ -40,6 +52,13 @@ ttk::button $ds9(main).hack.quick_three.ciao.cel -text {C} -takefocus 0 -command
 ttk::button $ds9(main).hack.quick_three.ciao.vtp -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {vtpdetect}"} \
    -image [image create photo -file "$ds9_hack_root/UI/vtp.png"]
 
+
+#~ vtp.png
+ttk::button $ds9(main).hack.quick_three.ciao.filth -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {Source Fill}"} \
+   -image [image create photo -file "$ds9_hack_root/UI/dmfilth.png"]
+
+
+
 #~ calc_add.png
 ttk::button $ds9(main).hack.quick_three.ciao.calc_add -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {ADD: previous frame to current frame (c+p)}"} \
    -image [image create photo -file "$ds9_hack_root/UI/calc_add.png"]
@@ -54,27 +73,44 @@ ttk::button $ds9(main).hack.quick_three.ciao.calc_div -text {C} -takefocus 0 -co
    -image [image create photo -file "$ds9_hack_root/UI/calc_div.png"]
 
 
-
-
+# Crop
+# Threshold
+# 
+# Lasso
+# Ellipse
+# Convex Hull
+# Adaptive Smooth
+# Csmooth
+# Non-Linear Filter
+# Adaptive Bin
 
 
 grid $ds9(main).hack.quick_three.ciao.pi -row 0 -column 0
 grid $ds9(main).hack.quick_three.ciao.time -row 0 -column 1
 grid $ds9(main).hack.quick_three.ciao.glvary -row 0 -column 2
-grid $ds9(main).hack.quick_three.ciao.stats -row 0 -column 3
-grid $ds9(main).hack.quick_three.ciao.flux -row 0 -column 4
-grid $ds9(main).hack.quick_three.ciao.coords -row 0 -column 5
+grid $ds9(main).hack.quick_three.ciao.pfold -row 0 -column 3
+
+grid $ds9(main).hack.quick_three.ciao.specfit -row 0 -column 4 -padx {15 0}
+grid $ds9(main).hack.quick_three.ciao.imgfit -row 0 -column 5 
 
 
-grid $ds9(main).hack.quick_three.ciao.pfold -row 0 -column 6
-grid $ds9(main).hack.quick_three.ciao.imghist -row 0 -column 7
-grid $ds9(main).hack.quick_three.ciao.rprof -row 0 -column 8
+grid $ds9(main).hack.quick_three.ciao.stats -row 0 -column 6 -padx {15 0}
+grid $ds9(main).hack.quick_three.ciao.netcts -row 0 -column 7
+grid $ds9(main).hack.quick_three.ciao.flux -row 0 -column 8
+grid $ds9(main).hack.quick_three.ciao.coords -row 0 -column 9
 
-grid $ds9(main).hack.quick_three.ciao.wav -row 0 -column 9
-grid $ds9(main).hack.quick_three.ciao.cel -row 0 -column 10
-grid $ds9(main).hack.quick_three.ciao.vtp -row 0 -column 11
+grid $ds9(main).hack.quick_three.ciao.imghist -row 0 -column 10 -padx {15 0}
+grid $ds9(main).hack.quick_three.ciao.rprof -row 0 -column 11
 
-grid $ds9(main).hack.quick_three.ciao.calc_add -row 0 -column 12
-grid $ds9(main).hack.quick_three.ciao.calc_sub -row 0 -column 13
-grid $ds9(main).hack.quick_three.ciao.calc_mul -row 0 -column 14
-grid $ds9(main).hack.quick_three.ciao.calc_div -row 0 -column 15
+grid $ds9(main).hack.quick_three.ciao.wav -row 0 -column 12 -padx {15 0}
+grid $ds9(main).hack.quick_three.ciao.cel -row 0 -column 13
+grid $ds9(main).hack.quick_three.ciao.vtp -row 0 -column 14
+
+grid $ds9(main).hack.quick_three.ciao.filth -row 0 -column 15 -padx {15 0}
+
+
+
+grid $ds9(main).hack.quick_three.ciao.calc_add -row 0 -column 16 -padx {15 0}
+grid $ds9(main).hack.quick_three.ciao.calc_sub -row 0 -column 17
+grid $ds9(main).hack.quick_three.ciao.calc_mul -row 0 -column 18
+grid $ds9(main).hack.quick_three.ciao.calc_div -row 0 -column 19
