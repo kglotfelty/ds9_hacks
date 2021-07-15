@@ -6,14 +6,13 @@ ttk::frame $ds9(main).hack
 grid configure $ds9(main).hack -row 3 -column $atcol -columnspan 3 -sticky we
 
 ttk::frame $ds9(main).hack.quick
-pack $ds9(main).hack.quick -anchor w
+pack $ds9(main).hack.quick -anchor w -fill x
 incr atcol
 
 ## ------------------------
 
 
 source $ds9_hack_root/edit_menu.tcl
-
 source $ds9_hack_root/region_shapes.tcl
 source $ds9_hack_root/region_color.tcl
 source $ds9_hack_root/region_width.tcl
@@ -25,7 +24,7 @@ source $ds9_hack_root/image_processing.tcl
 
 ttk::button $ds9(main).hack.quick.quit -text {Quit} -takefocus 0 -command {ds9Cmd "-exit"} \
     -image [image create photo -file "$ds9_hack_root/UI/quit.png"]
-grid $ds9(main).hack.quick.quit -row 0 -column $atcol -padx 15
+pack $ds9(main).hack.quick.quit -side right -padx 10
 
 ## ------------------------
 

@@ -29,7 +29,8 @@ proc my_change_incexl {} {
 
 
 ttk::frame $ds9(main).hack.quick.state
-grid $ds9(main).hack.quick.state -row 0 -column $atcol -padx 5
+#~ grid $ds9(main).hack.quick.state -row 0 -column $atcol -padx 5
+pack $ds9(main).hack.quick.state -side left -padx 5
 incr atcol
 
 ttk::button $ds9(main).hack.quick.state.src -text {S/B} -takefocus 0 -command {my_change_srcbkg} \

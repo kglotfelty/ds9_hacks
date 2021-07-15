@@ -21,7 +21,8 @@ proc my_change_scale { newval iswhat } {
 
 
 ttk::frame $ds9(main).hack.quick.scale 
-grid $ds9(main).hack.quick.scale -row 0 -column $atcol
+#~ grid $ds9(main).hack.quick.scale -row 0 -column $atcol
+pack $ds9(main).hack.quick.scale -side left
 incr atcol
 
 ttk::menubutton $ds9(main).hack.quick.scale.at -menu $ds9(main).hack.quick.scale.at.m \

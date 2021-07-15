@@ -72,7 +72,8 @@ proc make_color_button_image { newval } {
 
 
 ttk::frame $ds9(main).hack.quick.colors
-grid $ds9(main).hack.quick.colors -row 0 -column $atcol -padx 5
+#~ grid $ds9(main).hack.quick.colors -row 0 -column $atcol -padx 5
+pack $ds9(main).hack.quick.colors -padx 5 -side left
 incr atcol
 
 

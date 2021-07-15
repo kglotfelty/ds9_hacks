@@ -35,7 +35,8 @@ proc my_change_width { newval } {
 }
 
 ttk::frame $ds9(main).hack.quick.size 
-grid $ds9(main).hack.quick.size -row 0 -column $atcol
+#~ grid $ds9(main).hack.quick.size -row 0 -column $atcol
+pack $ds9(main).hack.quick.size -side left
 incr atcol
 
 ttk::menubutton $ds9(main).hack.quick.size.at -menu $ds9(main).hack.quick.size.at.m \

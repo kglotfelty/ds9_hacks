@@ -65,7 +65,8 @@ proc my_change_dash { nidx ndash ngap } {
 }
 
 ttk::frame $ds9(main).hack.quick.dashes 
-grid $ds9(main).hack.quick.dashes -row 0 -column $atcol
+#~ grid $ds9(main).hack.quick.dashes -row 0 -column $atcol
+pack $ds9(main).hack.quick.dashes -side left
 incr atcol
 
 ttk::menubutton $ds9(main).hack.quick.dashes.at -menu $ds9(main).hack.quick.dashes.at.m \

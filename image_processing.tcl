@@ -1,5 +1,6 @@
 ttk::frame $ds9(main).hack.quick.imgstuff
-grid $ds9(main).hack.quick.imgstuff -row 0 -column $atcol -padx 5
+#~ grid $ds9(main).hack.quick.imgstuff -row 0 -column $atcol -padx 5
+pack $ds9(main).hack.quick.imgstuff -padx 5 -side left
 incr atcol
 ttk::button $ds9(main).hack.quick.imgstuff.smth -text {S} -takefocus 0 -command {ds9Cmd "-smooth"} \
    -image [image create photo -file "$ds9_hack_root/UI/smooth.png"]

@@ -29,7 +29,8 @@ proc my_change_edit { newval cmd } {
 }
 
 ttk::frame $ds9(main).hack.quick.edit_menu 
-grid $ds9(main).hack.quick.edit_menu -row 0 -column $atcol
+#~ grid $ds9(main).hack.quick.edit_menu -row 0 -column $atcol
+pack $ds9(main).hack.quick.edit_menu -side left
 incr atcol
 
 ttk::menubutton $ds9(main).hack.quick.edit_menu.at -menu $ds9(main).hack.quick.edit_menu.at.m \

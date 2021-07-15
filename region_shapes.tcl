@@ -22,7 +22,8 @@ proc my_change_marker { newval iswhat } {
 
 
 ttk::frame $ds9(main).hack.quick.shapes 
-grid $ds9(main).hack.quick.shapes -row 0 -column $atcol
+#grid $ds9(main).hack.quick.shapes -row 0 -column $atcol
+pack $ds9(main).hack.quick.shapes -side left
 incr atcol
 
 ttk::menubutton $ds9(main).hack.quick.shapes.at -menu $ds9(main).hack.quick.shapes.at.m \
