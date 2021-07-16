@@ -89,6 +89,14 @@ ttk::button $ds9(main).hack.quick_three.ciao.calc_mul -text {C} -takefocus 0 -co
 #~ calc_div.png
 ttk::button $ds9(main).hack.quick_three.ciao.calc_div -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {DIV2: divide previous frame by current (p/c)}"} \
    -image [image create photo -file "$ds9_hack_root/UI/calc_div.png"]
+
+ttk::button $ds9(main).hack.quick_three.ciao.marx -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {Simulate PSF with MARX}"} \
+   -image [image create photo -file "$ds9_hack_root/UI/groucho.png"]
+
+## Only works for menu events
+#~ ttk::button $ds9(main).hack.quick_three.ciao.snapto -text {C} -takefocus 0 -command {ds9Cmd "-analysis task {centroid snap selected}"} \
+#~    -image [image create photo -file "$ds9_hack_root/UI/snap_to.png"]
+
    
 # Crop
 # Convex Hull
@@ -123,7 +131,9 @@ pack $ds9(main).hack.quick_three.ciao.nautilus -side left
 
 pack $ds9(main).hack.quick_three.ciao.lasso -side left -padx {15 0}
 pack $ds9(main).hack.quick_three.ciao.ellipse -side left
+#~ pack $ds9(main).hack.quick_three.ciao.snapto -side left
 
+pack $ds9(main).hack.quick_three.ciao.marx -side left -padx {15 0}
 
 
 pack $ds9(main).hack.quick_three.ciao.calc_add  -padx {15 0} -side left
