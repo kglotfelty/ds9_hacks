@@ -33,16 +33,10 @@ proc LayoutViewVert {} {
 
     if {$view(magnifier)} {
         pack $ds9(magnifier) -side top -padx 2 -pady 2
-        if { $view(panner) } {
-            pack $ds9(info) -after $ds9(panner)
-        }
     }
 
     if {$view(info)} {
-        pack $ds9(info) -side top -padx 2 -pady 2 -fill y 
-        if {$view(magnifier)} {
-            pack $ds9(info) -after $ds9(magnifier)
-        }
+        pack $ds9(info) -side top -padx 2 -pady 2 -fill x
     }
 
 
