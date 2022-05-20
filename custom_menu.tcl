@@ -3,11 +3,12 @@
 set atcol 0
 
 ttk::frame $ds9(main).hack
-grid configure $ds9(main).hack -row 3 -column $atcol -columnspan 3 -sticky we
+#grid configure $ds9(main).hack -row 3 -column $atcol -columnspan 3 -sticky we
 
-#ds9Cmd "-view layout vertical"
-#source $ds9_hack_root/vertical_layout.tcl
-#grid configure $ds9(main).hack -row -0 -column 0 -columnspan 5 -sticky we
+source $ds9_hack_root/custom_layout.tcl
+ds9Cmd "-view vertical"
+
+grid configure $ds9(main).hack -row -0 -column 0 -columnspan 5 -sticky we
 
 
 ttk::frame $ds9(main).hack.quick
@@ -18,6 +19,9 @@ incr atcol
 
 
 source $ds9_hack_root/edit_menu.tcl
+
+
+
 source $ds9_hack_root/region_shapes.tcl
 source $ds9_hack_root/region_color.tcl
 source $ds9_hack_root/region_width.tcl
