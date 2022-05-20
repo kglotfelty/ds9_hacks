@@ -1,20 +1,21 @@
-ttk::frame $ds9(main).hack.quick.imgstuff
-#~ grid $ds9(main).hack.quick.imgstuff -row 0 -column $atcol -padx 5
-pack $ds9(main).hack.quick.imgstuff -padx 5 -side left
-incr atcol
-ttk::button $ds9(main).hack.quick.imgstuff.smth -text {S} -takefocus 0 -command {toggle_smooth} \
+
+
+ttk::frame $ds9(main).hack_top.imgstuff
+pack $ds9(main).hack_top.imgstuff -padx 5 -side left
+
+ttk::button $ds9(main).hack_top.imgstuff.smth -text {S} -takefocus 0 -command {toggle_smooth} \
    -image [image create photo -file "$ds9_hack_root/UI/smooth.png"]
-ttk::button $ds9(main).hack.quick.imgstuff.cntr -text {C} -takefocus 0 -command {toggle_contour} \
+ttk::button $ds9(main).hack_top.imgstuff.cntr -text {C} -takefocus 0 -command {toggle_contour} \
    -image [image create photo -file "$ds9_hack_root/UI/contour.png"]
-ttk::button  $ds9(main).hack.quick.imgstuff.wcs -text {WCS} -takefocus 0 -command {ds9Cmd "-match frame wcs" } \
+ttk::button  $ds9(main).hack_top.imgstuff.wcs -text {WCS} -takefocus 0 -command {ds9Cmd "-match frame wcs" } \
    -image [image create photo -file "$ds9_hack_root/UI/match.png"]
-ttk::button  $ds9(main).hack.quick.imgstuff.cgrid -text {Coordinate Grid} -takefocus 0 -command {toggle_grid} \
+ttk::button  $ds9(main).hack_top.imgstuff.cgrid -text {Coordinate Grid} -takefocus 0 -command {toggle_grid} \
    -image [image create photo -file "$ds9_hack_root/UI/coord_grid.png"]
 
-grid $ds9(main).hack.quick.imgstuff.smth -row 0 -column 0 
-grid $ds9(main).hack.quick.imgstuff.cntr -row 0 -column 1 
-grid $ds9(main).hack.quick.imgstuff.cgrid -row 0 -column 2 
-grid $ds9(main).hack.quick.imgstuff.wcs  -row 0 -column 3
+pack $ds9(main).hack_top.imgstuff.smth -side left
+pack $ds9(main).hack_top.imgstuff.cntr -side left
+pack $ds9(main).hack_top.imgstuff.cgrid -side left
+pack $ds9(main).hack_top.imgstuff.wcs -side left
 
 proc toggle_smooth { } {
   global current

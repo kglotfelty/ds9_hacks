@@ -22,53 +22,51 @@ proc my_change_edit { newval cmd } {
  
   ds9Cmd "-mode $cmd"
 
-  $ds9(main).hack.quick.edit_menu.at configure -text $newval \
+  $ds9(main).hack_left.edit_menu.at configure -text $newval \
   -image [lindex $edit_icons $newval]
 
 
 }
 
-ttk::frame $ds9(main).hack.quick.edit_menu 
-#~ grid $ds9(main).hack.quick.edit_menu -row 0 -column $atcol
-pack $ds9(main).hack.quick.edit_menu -side left
-incr atcol
+ttk::frame $ds9(main).hack_left.edit_menu 
+pack $ds9(main).hack_left.edit_menu -side top
 
-ttk::menubutton $ds9(main).hack.quick.edit_menu.at -menu $ds9(main).hack.quick.edit_menu.at.m \
-  -text "Edit Mode"  \
+ttk::menubutton $ds9(main).hack_left.edit_menu.at -menu $ds9(main).hack_left.edit_menu.at.m \
+  -text "Edit Mode"  -direction right \
   -image [lindex $edit_icons 1] -takefocus 0
 
 #~ ds9Cmd "-mode region"  
 
-menu $ds9(main).hack.quick.edit_menu.at.m -tearoff 0
+menu $ds9(main).hack_left.edit_menu.at.m -tearoff 0
 
-$ds9(main).hack.quick.edit_menu.at.m add command -label "None" -command "my_change_edit 0 none" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "None" -command "my_change_edit 0 none" \
     -image [lindex $edit_icons 0] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "Region" -command "my_change_edit 1 region" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "Region" -command "my_change_edit 1 region" \
     -image [lindex $edit_icons 1] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "Crosshair" -command "my_change_edit 2 crosshair" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "Crosshair" -command "my_change_edit 2 crosshair" \
     -image [lindex $edit_icons 2] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "Colorbar" -command "my_change_edit 3 colorbar" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "Colorbar" -command "my_change_edit 3 colorbar" \
     -image [lindex $edit_icons 3] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "Pan" -command "my_change_edit 4 pan" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "Pan" -command "my_change_edit 4 pan" \
     -image [lindex $edit_icons 4] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "Zoom" -command "my_change_edit 5 zoom" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "Zoom" -command "my_change_edit 5 zoom" \
     -image [lindex $edit_icons 5] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "Rotate" -command "my_change_edit 6 rotate" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "Rotate" -command "my_change_edit 6 rotate" \
     -image [lindex $edit_icons 6] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "Crop" -command "my_change_edit 7 crop" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "Crop" -command "my_change_edit 7 crop" \
     -image [lindex $edit_icons 7] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "Catalog" -command "my_change_edit 8 catalog" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "Catalog" -command "my_change_edit 8 catalog" \
     -image [lindex $edit_icons 8] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "Footprint" -command "my_change_edit 9 footprint" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "Footprint" -command "my_change_edit 9 footprint" \
     -image [lindex $edit_icons 9] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "3D" -command "my_change_edit 10 3d" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "3D" -command "my_change_edit 10 3d" \
     -image [lindex $edit_icons 10] -compound left
-$ds9(main).hack.quick.edit_menu.at.m add command -label "Examine" -command "my_change_edit 11 examine" \
+$ds9(main).hack_left.edit_menu.at.m add command -label "Examine" -command "my_change_edit 11 examine" \
     -image [lindex $edit_icons 11] -compound left
 
 
 
-grid $ds9(main).hack.quick.edit_menu.at -row 0 -column 0
+grid $ds9(main).hack_left.edit_menu.at -row 0 -column 0
 
 
 

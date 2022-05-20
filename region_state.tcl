@@ -28,15 +28,13 @@ proc my_change_incexl {} {
 }
 
 
-ttk::frame $ds9(main).hack.quick.state
-#~ grid $ds9(main).hack.quick.state -row 0 -column $atcol -padx 5
-pack $ds9(main).hack.quick.state -side left -padx 5
-incr atcol
+ttk::frame $ds9(main).hack_left.state
+pack $ds9(main).hack_left.state -side top -fill x -padx 5
 
-ttk::button $ds9(main).hack.quick.state.src -text {S/B} -takefocus 0 -command {my_change_srcbkg} \
+ttk::button $ds9(main).hack_left.state.src -text {S/B} -takefocus 0 -command {my_change_srcbkg} \
     -image [image create photo -file "$ds9_hack_root/UI/srcbkg.png"]
-ttk::button $ds9(main).hack.quick.state.inc -text {I/E} -takefocus 0 -command {my_change_incexl} \
+ttk::button $ds9(main).hack_left.state.inc -text {I/E} -takefocus 0 -command {my_change_incexl} \
     -image [image create photo -file "$ds9_hack_root/UI/incexl.png"]
-grid $ds9(main).hack.quick.state.src -row 0 -column 0
-grid $ds9(main).hack.quick.state.inc -row 0 -column 1
+pack $ds9(main).hack_left.state.src -side top -fill x
+pack $ds9(main).hack_left.state.inc -side top -fill x
 

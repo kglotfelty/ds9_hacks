@@ -30,7 +30,7 @@ proc my_change_lut {newval} {
 
   ds9Cmd "-cmap [lindex $lutbar_names $newval]"
   
-  $ds9(main).hack.quick_two.lut.at configure \
+  $ds9(main).hack_top.lut.at configure \
   -text $newval \
   -image [lindex $lutbar_icons $newval]
      
@@ -58,29 +58,25 @@ foreach {i} $lutbar {
 
 
 
-ttk::frame $ds9(main).hack.quick_two.lut 
-grid $ds9(main).hack.quick_two.lut -row 0 -column $atcol
-incr atcol
+ttk::frame $ds9(main).hack_top.lut 
+pack $ds9(main).hack_top.lut -side left
 
-ttk::menubutton $ds9(main).hack.quick_two.lut.at -menu $ds9(main).hack.quick_two.lut.at.m \
+ttk::menubutton $ds9(main).hack_top.lut.at -menu $ds9(main).hack_top.lut.at.m \
   -text "Lookup Tables" \
   -image [lindex $lutbar_icons 0] -takefocus 0
   
-  
-  
-menu $ds9(main).hack.quick_two.lut.at.m -tearoff 0
+
+menu $ds9(main).hack_top.lut.at.m -tearoff 0
 
 
 for {set i 0} {$i < [llength $lutbar_icons]} {incr i} {
 
-$ds9(main).hack.quick_two.lut.at.m add command -label $i \
+$ds9(main).hack_top.lut.at.m add command -label $i \
     -command "my_change_lut $i" \
     -image [lindex $lutbar_icons $i]
-
-
 }
 
-grid $ds9(main).hack.quick_two.lut.at -row 0 -column 0
+grid $ds9(main).hack_top.lut.at -row 0 -column 0
 
 
 

@@ -38,10 +38,6 @@ foreach clr $x11_colors {
 }
 
 
-
-
-
-
 proc my_change_color {newval} {
   global marker
   global x11_colors
@@ -52,7 +48,7 @@ proc my_change_color {newval} {
   set marker(color) $color
   MarkerColor 
 
-  $ds9(main).hack.quick.colors.at configure \
+  $ds9(main).hack_left.colors.at configure \
     -image [make_color_button_image $newval]
 }
 
@@ -71,23 +67,17 @@ proc make_color_button_image { newval } {
 
 
 
-ttk::frame $ds9(main).hack.quick.colors
-#~ grid $ds9(main).hack.quick.colors -row 0 -column $atcol -padx 5
-pack $ds9(main).hack.quick.colors -padx 5 -side left
-incr atcol
+ttk::frame $ds9(main).hack_left.colors
+pack $ds9(main).hack_left.colors -padx 5 -side top
 
 
-
-ttk::menubutton $ds9(main).hack.quick.colors.at -menu $ds9(main).hack.quick.colors.at.m \
-  -text "Region Color" \
+ttk::menubutton $ds9(main).hack_left.colors.at -menu $ds9(main).hack_left.colors.at.m \
+  -text "Region Color" -direction right \
   -image [make_color_button_image 11] -takefocus 0
 
-menu $ds9(main).hack.quick.colors.at.m -tearoff 0
+menu $ds9(main).hack_left.colors.at.m -tearoff 0
 
-grid $ds9(main).hack.quick.colors.at -row 0 -column 0
-
-
-
+grid $ds9(main).hack_left.colors.at -row 0 -column 0
 
 for {set ii 0} { $ii < [llength $color_icons]} {incr ii} {
 
@@ -98,7 +88,7 @@ for {set ii 0} { $ii < [llength $color_icons]} {incr ii} {
         set newcol 0
     }
 
-    $ds9(main).hack.quick.colors.at.m add command \
+    $ds9(main).hack_left.colors.at.m add command \
       -label [lindex $x11_colors $ii] \
       -image [lindex $color_icons $ii] \
       -command "my_change_color $ii" \
