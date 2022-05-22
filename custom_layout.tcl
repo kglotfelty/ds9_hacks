@@ -28,15 +28,30 @@ proc LayoutViewVert {} {
     }
 
     if {$view(panner)} {
-        pack $ds9(panner) -side top -padx 2 -pady 2
+        grid $ds9(panner) -row 1 -column 1 -padx 2 -pady 2
     }
 
     if {$view(magnifier)} {
-        pack $ds9(magnifier) -side top -padx 2 -pady 2
+        grid $ds9(magnifier) -row 2 -column 1 -padx 2 -pady 2
+
+        if { [winfo exists $ds9(panel).change_magzoom] == 0 } {
+
+            ttk::frame $ds9(panel).change_magzoom
+            grid $ds9(panel).change_magzoom -row 3 -column 1 -padx 2 -pady 2 
+            
+            ttk::button $ds9(panel).change_magzoom.minus -text {-} -takefocus 0 \
+                -command {change_magzoom_level 0.5} -width 6
+            ttk::button $ds9(panel).change_magzoom.plus -text {+} -takefocus 0 \
+                -command {change_magzoom_level 2.0} -width 6
+            pack $ds9(panel).change_magzoom.minus -side left 
+            pack $ds9(panel).change_magzoom.plus -side left 
+
+        }   
+
     }
 
     if {$view(info)} {
-        pack $ds9(info) -side top -padx 2 -pady 2 -fill x
+        grid $ds9(info) -row 4 -column 1 -padx 2 -pady 2
     }
 
 
@@ -51,3 +66,13 @@ proc LayoutViewVert {} {
     grid $ds9(image) -row 1 -column 2 -sticky news
 }
 
+proc change_magzoom_level { factor } {
+    global pmagnifier
+
+    set newzoom [expr $pmagnifier(zoom) * $factor]
+
+
+    ds9Cmd "-magnifier zoom $newzoom"
+    
+
+}

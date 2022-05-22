@@ -30,13 +30,36 @@ source $ds9_hack_root/region_layer.tcl
 
 ## Top
 
+ttk::button $ds9(main).hack_top.file_open -text "File Open" \
+  -takefocus 0 -command [list OpenDialog fits] \
+  -image [image create photo -file "$ds9_hack_root/UI/file_open.png"]
+
+ttk::button $ds9(main).hack_top.save_png -text "Save As PNG" \
+  -takefocus 0 -command [list SaveImageDialog png] \
+  -image [image create photo -file "$ds9_hack_root/UI/save_as_png.png"]
+
+ttk::button $ds9(main).hack_top.print -text "Print" \
+  -takefocus 0 -command PSPrint \
+  -image [image create photo -file "$ds9_hack_root/UI/print.png"]
+
+ttk::button $ds9(main).hack_top.prism -text "Prism" \
+  -takefocus 0 -command [list PrismDialogLoad prism] \
+  -image [image create photo -file "$ds9_hack_root/UI/prism.png"]
+
+
+pack $ds9(main).hack_top.file_open -side left -padx {5 0}
+pack $ds9(main).hack_top.save_png -side left 
+pack $ds9(main).hack_top.print -side left 
+pack $ds9(main).hack_top.prism -side left -padx {0 5}
+
+
 source $ds9_hack_root/lut.tcl
 source $ds9_hack_root/image_scale.tcl
 source $ds9_hack_root/image_processing.tcl
 
 ttk::button $ds9(main).hack_top.quit -text {Quit} -takefocus 0 -command {ds9Cmd "-exit"} \
    -image [image create photo -file "$ds9_hack_root/UI/quit.png"]
-pack $ds9(main).hack_top.quit -side right -padx 10
+pack $ds9(main).hack_top.quit -side right -padx 5
 
 
 #~ ## ------------------------
