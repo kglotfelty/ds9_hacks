@@ -77,3 +77,57 @@ pack $ds9(main).hack_bottom.frames.prev -side left
 pack $ds9(main).hack_bottom.frames.at -side left 
 pack $ds9(main).hack_bottom.frames.next -side left 
 pack $ds9(main).hack_bottom.frames.last -side left 
+
+
+ttk::button $ds9(main).hack_bottom.frames.view_vert -text {Vertical Graph} \
+  -takefocus 0 \
+  -image [image create photo -file "$ds9_hack_root/UI/view_vertical.png"] \
+  -command [list toggle_view_graph vert]
+
+ttk::button $ds9(main).hack_bottom.frames.view_horz -text {Horizontal Graph} \
+  -takefocus 0 \
+  -image [image create photo -file "$ds9_hack_root/UI/view_horizontal.png"] \
+  -command [list toggle_view_graph horz]
+
+ttk::button $ds9(main).hack_bottom.frames.view_color -text {Colorbar} \
+  -takefocus 0 \
+  -image [image create photo -file "$ds9_hack_root/UI/view_colorbar.png"] \
+  -command toggle_view_colorbar
+  
+pack $ds9(main).hack_bottom.frames.view_vert -side left -padx {10 0}
+pack $ds9(main).hack_bottom.frames.view_horz -side left
+pack $ds9(main).hack_bottom.frames.view_color -side left
+  
+
+proc toggle_view_graph {dir} {
+    global view
+
+    if { $view(graph,$dir) } {
+        set view(graph,$dir) 0
+    } else {
+        set view(graph,$dir) 1
+    }
+
+    LayoutFrames    
+}
+
+
+proc toggle_view_colorbar {} {
+    global view
+    global colorbar
+    if { $view(colorbar) == 0 } {
+        set view(colorbar) 1
+        set colorbar(orientation) 0
+    } else {
+        
+        if { $colorbar(orientation) == 0 } { 
+            set colorbar(orientation) 1                
+        } else {
+        set view(colorbar) 0
+        }
+    }
+    
+    ColorbarUpdateView
+}
+
+
