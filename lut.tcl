@@ -59,7 +59,7 @@ foreach {i} $lutbar {
 
 
 ttk::frame $ds9(main).hack_top.lut 
-pack $ds9(main).hack_top.lut -side left
+pack $ds9(main).hack_top.lut -side left -padx 5
 
 ttk::menubutton $ds9(main).hack_top.lut.at -menu $ds9(main).hack_top.lut.at.m \
   -text "Lookup Tables" \
@@ -76,7 +76,27 @@ $ds9(main).hack_top.lut.at.m add command -label $i \
     -image [lindex $lutbar_icons $i]
 }
 
-grid $ds9(main).hack_top.lut.at -row 0 -column 0
+
+pack $ds9(main).hack_top.lut.at -side left
 
 
+ttk::button $ds9(main).hack_top.lut.invert -text {Invert} -takefocus 0\
+  -command toggle_colorbar_invert \
+  -image [image create photo -file "$ds9_hack_root/UI/colorbar_reverse.png"] 
+
+pack $ds9(main).hack_top.lut.invert -side left
+
+proc toggle_colorbar_invert {} {
+  global colorbar
+  
+  if { $colorbar(invert) } {
+      set colorbar(invert) 0
+  } else {
+      set colorbar(invert) 1
+  }
+  
+  InvertColorbar
+    
+    
+}
 

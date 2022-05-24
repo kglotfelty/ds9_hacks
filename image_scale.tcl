@@ -27,6 +27,8 @@ ttk::menubutton $ds9(main).hack_top.scale.at -menu $ds9(main).hack_top.scale.at.
   -text "Region Width" \
   -image [lindex $scale_icons 0] -takefocus 0
 
+
+
 ds9Cmd "-scale log"
  
 menu $ds9(main).hack_top.scale.at.m -tearoff 0
@@ -44,4 +46,10 @@ $ds9(main).hack_top.scale.at.m add command -label "Power" \
     -image [lindex $scale_icons 2] -compound left
 
 
-grid $ds9(main).hack_top.scale.at -row 0 -column 0
+pack $ds9(main).hack_top.scale.at -side left
+
+
+ttk::button $ds9(main).hack_top.scale.limits -text {Scale Parameters} -takefocus 0\
+  -command ScaleDialog \
+  -image [image create photo -file "$ds9_hack_root/UI/scale_limits.png"] 
+pack $ds9(main).hack_top.scale.limits -side left

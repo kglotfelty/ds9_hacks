@@ -46,11 +46,16 @@ ttk::button $ds9(main).hack_top.prism -text "Prism" \
   -takefocus 0 -command [list PrismDialogLoad prism] \
   -image [image create photo -file "$ds9_hack_root/UI/prism.png"]
 
+ttk::button $ds9(main).hack_top.notes -text "Notes" \
+  -takefocus 0 -command DisplayNotes \
+  -image [image create photo -file "$ds9_hack_root/UI/notes.png"]
+
 
 pack $ds9(main).hack_top.file_open -side left -padx {5 0}
 pack $ds9(main).hack_top.save_png -side left 
 pack $ds9(main).hack_top.print -side left 
-pack $ds9(main).hack_top.prism -side left -padx {0 5}
+pack $ds9(main).hack_top.prism -side left
+pack $ds9(main).hack_top.notes -side left -padx {0 5}
 
 
 source $ds9_hack_root/lut.tcl
