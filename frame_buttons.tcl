@@ -48,17 +48,17 @@ ttk::menubutton $ds9(main).hack_bottom.frames.at -menu $ds9(main).hack_bottom.fr
  
 menu $ds9(main).hack_bottom.frames.at.m -tearoff 0
 
-$ds9(main).hack_bottom.frames.at.m add command -label "Single" \
+$ds9(main).hack_bottom.frames.at.m add command -label [msgcat::mc {Single Frame}] \
     -command {my_change_frame 0 "single"} \
-    -image [lindex $frame_icons 0] 
+    -image [lindex $frame_icons 0] -compound left
 
-$ds9(main).hack_bottom.frames.at.m add command -label "Tile" \
+$ds9(main).hack_bottom.frames.at.m add command -label [msgcat::mc {Tile Frames}] \
     -command {my_change_frame 1 "tile"} \
-    -image [lindex $frame_icons 1] 
+    -image [lindex $frame_icons 1] -compound left 
 
-$ds9(main).hack_bottom.frames.at.m add command -label "Blink" \
+$ds9(main).hack_bottom.frames.at.m add command -label [msgcat::mc {Blink Frames}] \
     -command {my_change_frame 2 "blink"} \
-    -image [lindex $frame_icons 2] 
+    -image [lindex $frame_icons 2]  -compound left
 
 
 ttk::button $ds9(main).hack_bottom.frames.next -text {First} -takefocus 0 \
@@ -77,6 +77,31 @@ pack $ds9(main).hack_bottom.frames.prev -side left
 pack $ds9(main).hack_bottom.frames.at -side left 
 pack $ds9(main).hack_bottom.frames.next -side left 
 pack $ds9(main).hack_bottom.frames.last -side left 
+
+
+
+
+global current
+
+trace add variable current(display) write "sync_frame_display"
+
+proc sync_frame_display {name1 name2 op} {
+    global current
+
+    switch $current(display) {
+        single      {my_change_frame 0 $current(display)}
+        tile        {my_change_frame 1 $current(display)}
+        blink       {my_change_frame 2 $current(display)}
+    }
+
+
+}
+
+
+
+
+
+
 
 
 ttk::button $ds9(main).hack_bottom.frames.view_vert -text {Vertical Graph} \

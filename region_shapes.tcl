@@ -33,29 +33,29 @@ set marker(shape) "circle"
   
 menu $ds9(main).hack_left.shapes.at.m -tearoff 0
 
-$ds9(main).hack_left.shapes.at.m add command -label "1" \
+$ds9(main).hack_left.shapes.at.m add command -label [msgcat::mc {Circle}] \
     -command "my_change_marker 0 circle" \
-    -image [lindex $regionshape_icons 0]
+    -image [lindex $regionshape_icons 0] -compound left
 
-$ds9(main).hack_left.shapes.at.m add command -label "1" \
+$ds9(main).hack_left.shapes.at.m add command -label [msgcat::mc {Annulus}] \
     -command "my_change_marker 1 annulus" \
-    -image [lindex $regionshape_icons 1]
+    -image [lindex $regionshape_icons 1] -compound left
 
-$ds9(main).hack_left.shapes.at.m add command -label "1" \
+$ds9(main).hack_left.shapes.at.m add command -label [msgcat::mc {Ellipse}] \
     -command "my_change_marker 2 ellipse" \
-    -image [lindex $regionshape_icons 2]
+    -image [lindex $regionshape_icons 2] -compound left
 
-$ds9(main).hack_left.shapes.at.m add command -label "1" \
+$ds9(main).hack_left.shapes.at.m add command -label [msgcat::mc {Box}] \
     -command "my_change_marker 3 box" \
-    -image [lindex $regionshape_icons 3]
+    -image [lindex $regionshape_icons 3] -compound left
 
-$ds9(main).hack_left.shapes.at.m add command -label "1" \
+$ds9(main).hack_left.shapes.at.m add command -label [msgcat::mc {Polygon}] \
     -command "my_change_marker 4 polygon" \
-    -image [lindex $regionshape_icons 4]
+    -image [lindex $regionshape_icons 4] -compound left
 
-$ds9(main).hack_left.shapes.at.m add command -label "1" \
+$ds9(main).hack_left.shapes.at.m add command -label [msgcat::mc {Text}] \
     -command "my_change_marker 5 text" \
-    -image [lindex $regionshape_icons 5]
+    -image [lindex $regionshape_icons 5] -compound left
 
 pack $ds9(main).hack_left.shapes.at -side top
 
@@ -71,5 +71,27 @@ ttk::button $ds9(main).hack_left.shapes.list -text {Region List} \
 
 pack $ds9(main).hack_left.shapes.info -side top -fill x
 pack $ds9(main).hack_left.shapes.list -side top -fill x 
+
+global marker
+
+trace add variable marker(shape) write "sync_region_shape"
+
+proc sync_region_shape {name1 name2 op} {
+    global marker
+
+    switch $marker(shape) {
+        circle       {my_change_marker 0 $marker(shape)}
+        annulus      {my_change_marker 1 $marker(shape)}
+        ellipse      {my_change_marker 2 $marker(shape)}
+        box          {my_change_marker 3 $marker(shape)}
+        polygon      {my_change_marker 4 $marker(shape)}
+        text         {my_change_marker 5 $marker(shape)}
+
+    }
+
+
+}
+
+
 
 

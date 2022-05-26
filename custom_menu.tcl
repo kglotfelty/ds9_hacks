@@ -23,7 +23,7 @@ source $ds9_hack_root/edit_menu.tcl
 source $ds9_hack_root/region_shapes.tcl
 source $ds9_hack_root/region_color.tcl
 source $ds9_hack_root/region_width.tcl
-source $ds9_hack_root/region_dash.tcl
+### source $ds9_hack_root/region_dash.tcl  # This is too fragile
 source $ds9_hack_root/region_state.tcl
 source $ds9_hack_root/region_layer.tcl
 

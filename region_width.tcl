@@ -43,13 +43,13 @@ ttk::menubutton $ds9(main).hack_left.size.at -menu $ds9(main).hack_left.size.at.
 menu $ds9(main).hack_left.size.at.m -tearoff 0
 
 $ds9(main).hack_left.size.at.m add command -label "1" -command "my_change_width 1" \
-    -image [lindex $regwidth_icons 1]
+    -image [lindex $regwidth_icons 1] -compound left
 $ds9(main).hack_left.size.at.m add command -label "2" -command "my_change_width 2" \
-    -image [lindex $regwidth_icons 2]
+    -image [lindex $regwidth_icons 2] -compound left
 $ds9(main).hack_left.size.at.m add command -label "3" -command "my_change_width 3" \
-    -image [lindex $regwidth_icons 3]
+    -image [lindex $regwidth_icons 3] -compound left
 $ds9(main).hack_left.size.at.m add command -label "4" -command "my_change_width 4" \
-    -image [lindex $regwidth_icons 4]
+    -image [lindex $regwidth_icons 4] -compound left
 
 grid $ds9(main).hack_left.size.at -row 0 -column 0
 
