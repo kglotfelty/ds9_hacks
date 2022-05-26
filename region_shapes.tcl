@@ -6,6 +6,7 @@ set regionshape_icons [ list [image create photo -file "$ds9_hack_root/UI/circle
                              [image create photo -file "$ds9_hack_root/UI/box.png"] \
                              [image create photo -file "$ds9_hack_root/UI/poly.png"] \
                              [image create photo -file "$ds9_hack_root/UI/text.png"] \
+                             [image create photo -file "$ds9_hack_root/UI/region_other.png"] \
                             ]
 
 
@@ -14,7 +15,10 @@ proc my_change_marker { newval iswhat } {
   global ds9
   global regionshape_icons
 
-  set marker(shape) $iswhat
+  if { $iswhat != "other" } {
+    set marker(shape) $iswhat
+  }
+
   $ds9(main).hack_left.shapes.at configure -text $newval \
   -image [lindex $regionshape_icons $newval]
 
@@ -86,7 +90,7 @@ proc sync_region_shape {name1 name2 op} {
         box          {my_change_marker 3 $marker(shape)}
         polygon      {my_change_marker 4 $marker(shape)}
         text         {my_change_marker 5 $marker(shape)}
-
+        default      {my_change_marker 6 other}
     }
 
 

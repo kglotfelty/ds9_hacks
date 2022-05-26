@@ -5,6 +5,7 @@ global scale_icons
 set scale_icons [ list [image create photo -file "$ds9_hack_root/UI/log.png"] \
                        [image create photo -file "$ds9_hack_root/UI/lin.png"] \
                        [image create photo -file "$ds9_hack_root/UI/pow.png"] \
+                       [image create photo -file "$ds9_hack_root/UI/scale_other.png"] \
                         ]
 
 
@@ -12,7 +13,10 @@ proc my_change_scale { newval iswhat } {
   global ds9
   global scale_icons
 
-  ds9Cmd "-scale $iswhat"
+  if { $iswhat != "other" } {
+    ds9Cmd "-scale $iswhat"
+  }
+
   $ds9(main).hack_top.scale.at configure -text $newval \
     -image [lindex $scale_icons $newval]
 
@@ -66,6 +70,7 @@ proc sync_scale_type {name1 name2 op} {
         log      {my_change_scale 0 $scale(type)}
         linear   {my_change_scale 1 $scale(type)}
         pow      {my_change_scale 2 $scale(type)}
+        default  {my_change_scale 3 other}
     }
 
 
