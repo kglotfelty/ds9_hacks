@@ -1,6 +1,7 @@
 
 global lutbar_icons
 global lutbar_names
+global unknown_icon
 set lutbar_icons {}
 set lutbar_names {}
 
@@ -22,20 +23,43 @@ set lutbar [list "$ds9_hack_root/LUT/DS9/grey.png" \
                  "$ds9_hack_root/LUT/Neota/neota_pink-sunset.png" \
                   ]                 
 
+set unknown_lut "$ds9_hack_root/LUT/unknown.png"
+
 
 proc my_change_lut {newval} {
   global lutbar_icons
   global lutbar_names
   global ds9
+  global colorbar
+  global unknown_icon
 
-  ds9Cmd "-cmap [lindex $lutbar_names $newval]"
-  
-  $ds9(main).hack_top.lut.at configure \
-  -text $newval \
-  -image [lindex $lutbar_icons $newval]
-     
+  if { $newval >= 0 } {
+      ds9Cmd "-cmap [lindex $lutbar_names $newval]"
+      
+      $ds9(main).hack_top.lut.at configure \
+      -text $newval \
+      -image [lindex $lutbar_icons $newval]
+  } else {
+      $ds9(main).hack_top.lut.at configure \
+      -text $newval \
+      -image [lindex $unknown_icon 0]
+      
+      
+  }
 }
 
+global colorbar
+
+trace add variable colorbar(map) write "sync_colormap"
+
+proc sync_colormap {name1 name2 op} {
+  global colorbar
+  global lutbar_names
+
+  set idx [lsearch $lutbar_names $colorbar(map)]
+  my_change_lut $idx
+
+}
 
 
 foreach {i} $lutbar {
@@ -56,6 +80,11 @@ foreach {i} $lutbar {
     
 }
 
+set oi [image create photo boo -file $unknown_lut]
+image create photo moo999 -width 200 -height 16
+set boo99 [moo999 copy boo -zoom 2]
+lappend unknown_icon moo999
+
 
 
 ttk::frame $ds9(main).hack_top.lut 
@@ -70,6 +99,8 @@ menu $ds9(main).hack_top.lut.at.m -tearoff 0
 
 
 for {set i 0} {$i < [llength $lutbar_icons]} {incr i} {
+
+puts $i
 
 $ds9(main).hack_top.lut.at.m add command -label $i \
     -command "my_change_lut $i" \
