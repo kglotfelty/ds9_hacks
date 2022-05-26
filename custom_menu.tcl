@@ -34,6 +34,10 @@ ttk::button $ds9(main).hack_top.file_open -text "File Open" \
   -takefocus 0 -command [list OpenDialog fits] \
   -image [image create photo -file "$ds9_hack_root/UI/file_open.png"]
 
+ttk::button $ds9(main).hack_top.save_eps -text "Save As EPS" \
+  -takefocus 0 -command [list SaveImageDialog eps] \
+  -image [image create photo -file "$ds9_hack_root/UI/save_as_eps.png"]
+
 ttk::button $ds9(main).hack_top.save_png -text "Save As PNG" \
   -takefocus 0 -command [list SaveImageDialog png] \
   -image [image create photo -file "$ds9_hack_root/UI/save_as_png.png"]
@@ -41,6 +45,10 @@ ttk::button $ds9(main).hack_top.save_png -text "Save As PNG" \
 ttk::button $ds9(main).hack_top.print -text "Print" \
   -takefocus 0 -command PSPrint \
   -image [image create photo -file "$ds9_hack_root/UI/print.png"]
+
+ttk::button $ds9(main).hack_top.backup -text "Backup" \
+  -takefocus 0 -command BackupDialog \
+  -image [image create photo -file "$ds9_hack_root/UI/backup.png"]
 
 ttk::button $ds9(main).hack_top.prism -text "Prism" \
   -takefocus 0 -command [list PrismDialogLoad prism] \
@@ -52,9 +60,11 @@ ttk::button $ds9(main).hack_top.notes -text "Notes" \
 
 
 pack $ds9(main).hack_top.file_open -side left -padx {5 0}
+pack $ds9(main).hack_top.save_eps -side left 
 pack $ds9(main).hack_top.save_png -side left 
 pack $ds9(main).hack_top.print -side left 
-pack $ds9(main).hack_top.prism -side left
+pack $ds9(main).hack_top.backup -side left 
+pack $ds9(main).hack_top.prism -side left -padx {5 0}
 pack $ds9(main).hack_top.notes -side left -padx {0 5}
 
 
