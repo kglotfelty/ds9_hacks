@@ -73,8 +73,18 @@ ttk::button $ds9(main).hack_left.shapes.list -text {Region List} \
     -image [image create photo -file "$ds9_hack_root/UI/region_list.png"] 
     
 
+ttk::button $ds9(main).hack_left.shapes.open -text {Region Open} \
+    -takefocus 0 -command MarkerLoad \
+    -image [image create photo -file "$ds9_hack_root/UI/region_open.png"] 
+ttk::button $ds9(main).hack_left.shapes.save -text {Region Save} \
+    -takefocus 0 -command [list MarkerSave {}] \
+    -image [image create photo -file "$ds9_hack_root/UI/region_save.png"] 
+
+
 pack $ds9(main).hack_left.shapes.info -side top -fill x
 pack $ds9(main).hack_left.shapes.list -side top -fill x 
+pack $ds9(main).hack_left.shapes.open -side top -fill x 
+pack $ds9(main).hack_left.shapes.save -side top -fill x 
 
 global marker
 
