@@ -99,12 +99,9 @@ menu $ds9(main).hack_top.lut.at.m -tearoff 0
 
 
 for {set i 0} {$i < [llength $lutbar_icons]} {incr i} {
-
-puts $i
-
-$ds9(main).hack_top.lut.at.m add command -label $i \
-    -command "my_change_lut $i" \
-    -image [lindex $lutbar_icons $i]
+    $ds9(main).hack_top.lut.at.m add command -label $i \
+        -command "my_change_lut $i" \
+        -image [lindex $lutbar_icons $i]
 }
 
 
