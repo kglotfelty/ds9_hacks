@@ -24,3 +24,11 @@ pack $ds9(main).hack_left.layer.front -side top -fill x
 pack $ds9(main).hack_left.layer.compose -side top -fill x
 pack $ds9(main).hack_left.layer.dissolve -side top -fill x
 pack $ds9(main).hack_left.layer.group -side top -fill x
+
+if { ![catch {package require tooltip}]} {
+    tooltip::tooltip $ds9(main).hack_left.layer.back "Send to Back"
+    tooltip::tooltip $ds9(main).hack_left.layer.front "Bring to Front"
+    tooltip::tooltip $ds9(main).hack_left.layer.compose "Create Composite Region"
+    tooltip::tooltip $ds9(main).hack_left.layer.dissolve "Dissolve Composite Region"
+    tooltip::tooltip $ds9(main).hack_left.layer.group "Tag New Region Group"
+}

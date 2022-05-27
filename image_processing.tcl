@@ -17,6 +17,14 @@ pack $ds9(main).hack_top.imgstuff.cntr -side left
 pack $ds9(main).hack_top.imgstuff.cgrid -side left
 pack $ds9(main).hack_top.imgstuff.wcs -side left
 
+if { ![catch {package require tooltip}]} {
+    tooltip::tooltip $ds9(main).hack_top.imgstuff.smth "Toggle Smooth"
+    tooltip::tooltip $ds9(main).hack_top.imgstuff.cntr "Toggle Contour"
+    tooltip::tooltip $ds9(main).hack_top.imgstuff.cgrid "Toggle Coordinate Grid"
+    tooltip::tooltip $ds9(main).hack_top.imgstuff.wcs "Match Frames on WCS"
+}
+
+
 proc toggle_smooth { } {
   global current
   global smooth

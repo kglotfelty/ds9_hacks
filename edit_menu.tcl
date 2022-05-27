@@ -35,6 +35,11 @@ ttk::menubutton $ds9(main).hack_left.edit_menu.at -menu $ds9(main).hack_left.edi
   -text "Edit Mode"  -direction right \
   -image [lindex $edit_icons 1] -takefocus 0
 
+if { ![catch {package present tooltip}] } {
+    tooltip::tooltip $ds9(main).hack_left.edit_menu.at "Edit Mode"
+}
+
+
 #~ ds9Cmd "-mode region"  
 
 menu $ds9(main).hack_left.edit_menu.at.m -tearoff 0

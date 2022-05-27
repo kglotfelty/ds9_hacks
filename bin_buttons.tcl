@@ -18,3 +18,9 @@ ttk::button $ds9(main).hack_bottom.bin.out -text {First} -takefocus 0 \
 pack $ds9(main).hack_bottom.bin.out -side left
 pack $ds9(main).hack_bottom.bin.one -side left
 pack $ds9(main).hack_bottom.bin.in -side left
+
+if { ![catch {package require tooltip}] } {
+    tooltip::tooltip $ds9(main).hack_bottom.bin.in "Increase Bin"
+    tooltip::tooltip $ds9(main).hack_bottom.bin.one "Set Bin to 1"
+    tooltip::tooltip $ds9(main).hack_bottom.bin.out "Decrease Bin"
+}

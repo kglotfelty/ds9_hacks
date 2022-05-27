@@ -79,6 +79,11 @@ menu $ds9(main).hack_left.colors.at.m -tearoff 0
 
 grid $ds9(main).hack_left.colors.at -row 0 -column 0
 
+if { ![catch {package require tooltip}]} {
+    tooltip::tooltip $ds9(main).hack_left.colors.at "Region Color"
+}
+
+
 for {set ii 0} { $ii < [llength $color_icons]} {incr ii} {
 
     set rr [expr $ii % 11]

@@ -86,6 +86,15 @@ pack $ds9(main).hack_left.shapes.list -side top -fill x
 pack $ds9(main).hack_left.shapes.open -side top -fill x 
 pack $ds9(main).hack_left.shapes.save -side top -fill x 
 
+if { ![catch {package require tooltip}]} {
+    tooltip::tooltip $ds9(main).hack_left.shapes.at "Region Shape"
+    tooltip::tooltip $ds9(main).hack_left.shapes.info "Get Region Info" 
+    tooltip::tooltip $ds9(main).hack_left.shapes.list "List Region"  
+    tooltip::tooltip $ds9(main).hack_left.shapes.open "Load Region File"  
+    tooltip::tooltip $ds9(main).hack_left.shapes.save "Save Region File"      
+}
+
+
 global marker
 
 trace add variable marker(shape) write "sync_region_shape"

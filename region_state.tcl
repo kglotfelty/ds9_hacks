@@ -38,3 +38,7 @@ ttk::button $ds9(main).hack_left.state.inc -text {I/E} -takefocus 0 -command {my
 pack $ds9(main).hack_left.state.src -side top -fill x
 pack $ds9(main).hack_left.state.inc -side top -fill x
 
+if { ![catch {package require tooltip}]} {
+    tooltip::tooltip $ds9(main).hack_left.state.src "Toggle Source/Background"
+    tooltip::tooltip $ds9(main).hack_left.state.inc "Toggle Include/Exclude"
+}

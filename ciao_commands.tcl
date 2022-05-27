@@ -140,3 +140,37 @@ pack $ds9(main).hack_top.ciao.calc_add  -padx {15 0} -side left
 pack $ds9(main).hack_top.ciao.calc_sub  -side left
 pack $ds9(main).hack_top.ciao.calc_mul  -side left
 pack $ds9(main).hack_top.ciao.calc_div  -side left
+
+
+if { ![catch {package require tooltip}] } {
+    tooltip::tooltip $ds9(main).hack_top.ciao.pi "PI Spectrum"
+    tooltip::tooltip $ds9(main).hack_top.ciao.time "Lightcurve "
+    tooltip::tooltip $ds9(main).hack_top.ciao.glvary "Gregory-Loredo lightcurve"
+    tooltip::tooltip $ds9(main).hack_top.ciao.pfold "Period Fold"
+    tooltip::tooltip $ds9(main).hack_top.ciao.specfit  "Spectral Fit"
+    tooltip::tooltip $ds9(main).hack_top.ciao.imgfit  "2D Image Fit"
+    tooltip::tooltip $ds9(main).hack_top.ciao.stats  "Statistics (dmstat)"
+    tooltip::tooltip $ds9(main).hack_top.ciao.netcts  "Net Counts"
+    tooltip::tooltip $ds9(main).hack_top.ciao.flux  "Source Flux"
+    tooltip::tooltip $ds9(main).hack_top.ciao.coords  "Chandra Coordinates"
+    tooltip::tooltip $ds9(main).hack_top.ciao.imghist   "Pixel Histogram"
+    tooltip::tooltip $ds9(main).hack_top.ciao.rprof  "Radial Profile"
+    tooltip::tooltip $ds9(main).hack_top.ciao.wav   "Wavdetect"
+    tooltip::tooltip $ds9(main).hack_top.ciao.cel  "Celldetect"
+    tooltip::tooltip $ds9(main).hack_top.ciao.vtp  "VTP detect"
+    tooltip::tooltip $ds9(main).hack_top.ciao.filth   "Fill in holes (dmfilth)"
+    tooltip::tooltip $ds9(main).hack_top.ciao.thresh "Threshold"
+    tooltip::tooltip $ds9(main).hack_top.ciao.imgfilt "Non-linear filtering (dmimgfilt)"
+    tooltip::tooltip $ds9(main).hack_top.ciao.imgadapt "Adaptive Smooth (dmimgadapt)"
+    tooltip::tooltip $ds9(main).hack_top.ciao.csmooth "Csmooth"
+    tooltip::tooltip $ds9(main).hack_top.ciao.nautilus "Adaptive Binning (dmnautilus)"
+    tooltip::tooltip $ds9(main).hack_top.ciao.lasso "Lasso pixels (dmimglasso)" 
+    tooltip::tooltip $ds9(main).hack_top.ciao.ellipse "ECF Ellipse (dmellipse)"
+    tooltip::tooltip $ds9(main).hack_top.ciao.marx "Run Marx" 
+    tooltip::tooltip $ds9(main).hack_top.ciao.calc_add   "Add current to previous frame"
+    tooltip::tooltip $ds9(main).hack_top.ciao.calc_sub  "Subtract current from previous frame"
+    tooltip::tooltip $ds9(main).hack_top.ciao.calc_mul  "Multiply current and previous frame"
+    tooltip::tooltip $ds9(main).hack_top.ciao.calc_div  "Divide current frame by previous"
+}
+
+

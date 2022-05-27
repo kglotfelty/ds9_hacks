@@ -114,6 +114,13 @@ ttk::button $ds9(main).hack_top.lut.invert -text {Invert} -takefocus 0\
 
 pack $ds9(main).hack_top.lut.invert -side left
 
+
+if { ![catch {package require tooltip}]} {
+    tooltip::tooltip $ds9(main).hack_top.lut.at "Colormaps"
+    tooltip::tooltip $ds9(main).hack_top.lut.invert "Reverse Colormap"    
+}
+
+
 proc toggle_colorbar_invert {} {
   global colorbar
   

@@ -59,6 +59,12 @@ ttk::button $ds9(main).hack_top.scale.limits -text {Scale Parameters} -takefocus
 pack $ds9(main).hack_top.scale.limits -side left
 
 
+if { ![catch {package require tooltip}] } {
+    tooltip::tooltip $ds9(main).hack_top.scale.at "Scaling Option"
+    tooltip::tooltip $ds9(main).hack_top.scale.limits "Scaling Parameters"
+}
+
+
 global scale
 
 trace add variable scale(type) write "sync_scale_type"

@@ -18,3 +18,9 @@ ttk::button $ds9(main).hack_bottom.zoom.out -text {First} -takefocus 0 \
 pack $ds9(main).hack_bottom.zoom.out -side left
 pack $ds9(main).hack_bottom.zoom.one -side left
 pack $ds9(main).hack_bottom.zoom.in -side left
+
+if { ![catch {package require tooltip}]} {
+    tooltip::tooltip $ds9(main).hack_bottom.zoom.out "Zoom Out"
+    tooltip::tooltip $ds9(main).hack_bottom.zoom.one "Set Zoom to 1"
+    tooltip::tooltip $ds9(main).hack_bottom.zoom.in "Zoom In"
+}

@@ -46,6 +46,12 @@ proc LayoutViewVert {} {
             pack $ds9(panel).change_magzoom.minus -side left 
             pack $ds9(panel).change_magzoom.plus -side left 
 
+
+            if { ![catch {package require tooltip}] } {
+                tooltip::tooltip $ds9(panel).change_magzoom.minus "Decrease Magnification"
+                tooltip::tooltip $ds9(panel).change_magzoom.plus "Increase Magnification"
+            }
+
         }   
 
     }

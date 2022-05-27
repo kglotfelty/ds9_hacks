@@ -19,3 +19,10 @@ ttk::button $ds9(main).hack_bottom.block.out -text {First} -takefocus 0 \
 pack $ds9(main).hack_bottom.block.out -side left
 pack $ds9(main).hack_bottom.block.one -side left
 pack $ds9(main).hack_bottom.block.in -side left
+
+
+if { ![catch {package require tooltip}] } {
+    tooltip::tooltip $ds9(main).hack_bottom.block.in "Increase Block"
+    tooltip::tooltip $ds9(main).hack_bottom.block.one "Set Block to 1"
+    tooltip::tooltip $ds9(main).hack_bottom.block.out "Decrease Block"
+}

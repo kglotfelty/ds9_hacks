@@ -141,5 +141,8 @@ $ds9(main).hack_left.dashes.at.m add command -label "4" -command "my_change_dash
 
 grid $ds9(main).hack_left.dashes.at -row 0 -column 0
 
+if { ![catch {package require tooltip}]} {
+  tooltip::tooltip $ds9(main).hack_left.dashes.at "Set Region Line Dashes"
+}
 
 

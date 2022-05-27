@@ -51,7 +51,9 @@ $ds9(main).hack_left.size.at.m add command -label "3" -command "my_change_width 
 $ds9(main).hack_left.size.at.m add command -label "4" -command "my_change_width 4" \
     -image [lindex $regwidth_icons 4] -compound left
 
-grid $ds9(main).hack_left.size.at -row 0 -column 0
+pack $ds9(main).hack_left.size.at -side top
 
 
-
+if { ![catch {package require tooltip}]} {
+    tooltip::tooltip $ds9(main).hack_left.size.at "Region Line Width"
+}

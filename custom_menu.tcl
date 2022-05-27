@@ -77,6 +77,20 @@ ttk::button $ds9(main).hack_top.quit -text {Quit} -takefocus 0 -command {ds9Cmd 
 pack $ds9(main).hack_top.quit -side right -padx 5
 
 
+if { ![catch {package require tooltip}] } {
+    tooltip::tooltip  $ds9(main).hack_top.file_open "File Open"
+    tooltip::tooltip  $ds9(main).hack_top.save_eps "Save as EPS"
+    tooltip::tooltip  $ds9(main).hack_top.save_png "Save as PNG"
+    tooltip::tooltip  $ds9(main).hack_top.print "Print"
+    tooltip::tooltip  $ds9(main).hack_top.backup "Backup"
+    tooltip::tooltip  $ds9(main).hack_top.prism "Open Prism"
+    tooltip::tooltip  $ds9(main).hack_top.notes "Open Notepad"
+    tooltip::tooltip  $ds9(main).hack_top.quit "Exit"
+}
+
+
+
+
 #~ ## ------------------------
 
 ## Bottom 

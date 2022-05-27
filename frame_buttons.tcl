@@ -79,8 +79,6 @@ pack $ds9(main).hack_bottom.frames.next -side left
 pack $ds9(main).hack_bottom.frames.last -side left 
 
 
-
-
 global current
 
 trace add variable current(display) write "sync_frame_display"
@@ -96,10 +94,6 @@ proc sync_frame_display {name1 name2 op} {
 
 
 }
-
-
-
-
 
 
 
@@ -156,3 +150,16 @@ proc toggle_view_colorbar {} {
 }
 
 
+if { ![catch {package require tooltip}] } {
+    tooltip::tooltip $ds9(main).hack_bottom.frames.add "Add New Frame"
+    tooltip::tooltip $ds9(main).hack_bottom.frames.del "Delete Frame"
+    tooltip::tooltip $ds9(main).hack_bottom.frames.first "Goto First Frame"
+    tooltip::tooltip $ds9(main).hack_bottom.frames.prev "Goto Previous Frame"
+    tooltip::tooltip $ds9(main).hack_bottom.frames.at "Frame Layout"
+    tooltip::tooltip $ds9(main).hack_bottom.frames.next "Goto Next Frame"
+    tooltip::tooltip $ds9(main).hack_bottom.frames.last "Goto Last Frame"
+        
+    tooltip::tooltip $ds9(main).hack_bottom.frames.view_vert "Toggle Vertical Graph"
+    tooltip::tooltip $ds9(main).hack_bottom.frames.view_horz "Toggle Horizontal Graph"
+    tooltip::tooltip $ds9(main).hack_bottom.frames.view_color "Toggle Colorbar"
+}
