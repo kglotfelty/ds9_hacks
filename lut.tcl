@@ -26,7 +26,7 @@ set lutbar [list "$ds9_hack_root/LUT/DS9/grey.png" \
 set unknown_lut "$ds9_hack_root/LUT/unknown.png"
 
 
-proc my_change_lut {newval} {
+proc my_change_lut {newval change} {
   global lutbar_icons
   global lutbar_names
   global ds9
@@ -34,8 +34,10 @@ proc my_change_lut {newval} {
   global unknown_icon
 
   if { $newval >= 0 } {
-      ds9Cmd "-cmap [lindex $lutbar_names $newval]"
-      
+
+      if {$change} {
+        ds9Cmd "-cmap [lindex $lutbar_names $newval]"
+      }
       $ds9(main).hack_top.lut.at configure \
       -text $newval \
       -image [lindex $lutbar_icons $newval]
@@ -57,7 +59,7 @@ proc sync_colormap {name1 name2 op} {
   global lutbar_names
 
   set idx [lsearch $lutbar_names $colorbar(map)]
-  my_change_lut $idx
+  my_change_lut $idx 0
 
 }
 
@@ -100,7 +102,7 @@ menu $ds9(main).hack_top.lut.at.m -tearoff 0
 
 for {set i 0} {$i < [llength $lutbar_icons]} {incr i} {
     $ds9(main).hack_top.lut.at.m add command -label $i \
-        -command "my_change_lut $i" \
+        -command "my_change_lut $i 1" \
         -image [lindex $lutbar_icons $i]
 }
 
