@@ -19,6 +19,7 @@ proc LayoutViewVert {} {
     pack forget $ds9(magnifier)
     pack forget $ds9(info)
     pack forget $ds9(panner)
+    global ds9_hack_root
 
     # info panel
     if {$view(info) || $view(magnifier) || $view(panner)} {
@@ -29,15 +30,42 @@ proc LayoutViewVert {} {
 
     if {$view(panner)} {
         grid $ds9(panner) -row 1 -column 1 -padx 2 -pady 2
+
+        if { [winfo exists $ds9(panel).align_center] == 0 } {
+
+            ttk::frame $ds9(panel).align_center
+            grid $ds9(panel).align_center -row 2 -column 1 -padx 2 -pady 2
+            
+            ttk::button $ds9(panel).align_center.align -text {Align} -takefocus 0 \
+                -command {ds9Cmd "-rotate to 0"} \
+                -image [image create photo -file "$ds9_hack_root/UI/north_up.png"] 
+
+            ttk::button $ds9(panel).align_center.center -text {Center} -takefocus 0 \
+                -command {ds9Cmd "-frame center"} \
+                -image [image create photo -file "$ds9_hack_root/UI/center.png"] 
+
+            pack $ds9(panel).align_center.align -side left -fill x -expand 1
+            pack $ds9(panel).align_center.center -side left  -fill x -expand 1
+
+            if { ![catch {package require tooltip}] } {
+                tooltip::tooltip $ds9(panel).align_center.align "Align North Up"
+                tooltip::tooltip $ds9(panel).align_center.center "Pan to Center"
+            }
+
+        }   
+
+
+
+
     }
 
     if {$view(magnifier)} {
-        grid $ds9(magnifier) -row 2 -column 1 -padx 2 -pady 2
+        grid $ds9(magnifier) -row 3 -column 1 -padx 2 -pady 2
 
         if { [winfo exists $ds9(panel).change_magzoom] == 0 } {
 
             ttk::frame $ds9(panel).change_magzoom
-            grid $ds9(panel).change_magzoom -row 3 -column 1 -padx 2 -pady 2 
+            grid $ds9(panel).change_magzoom -row 4 -column 1 -padx 2 -pady 2 
             
             ttk::button $ds9(panel).change_magzoom.minus -text {-} -takefocus 0 \
                 -command {change_magzoom_level 0.5} -width 6
@@ -57,7 +85,7 @@ proc LayoutViewVert {} {
     }
 
     if {$view(info)} {
-        grid $ds9(info) -row 4 -column 1 -padx 2 -pady 2
+        grid $ds9(info) -row 5 -column 1 -padx 2 -pady 2
     }
 
 
