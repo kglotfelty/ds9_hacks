@@ -59,17 +59,15 @@ proc LayoutViewVert {} {
     add_bottom_buttons
     grid $ds9(hack_bottom) -row 2 -column 1 -columnspan 3 -sticky we
 
+    add_left_buttons
+    grid $ds9(hack_left) -row 1 -column 0 -sticky ns
+
     if { [winfo exists $ds9(main).hack_top] == 0 } {
         ttk::frame $ds9(main).hack_top
         set ds9(hack_top) $ds9(main).hack_top
     }
     grid $ds9(hack_top) -row -0 -column 0 -columnspan 4 -sticky we
 
-    if { [winfo exists $ds9(main).hack_left] == 0 } {
-        ttk::frame $ds9(main).hack_left
-        set ds9(hack_left) $ds9(main).hack_left
-    }
-    grid $ds9(hack_left) -row 1 -column 0 -sticky ns
 
     
 }
@@ -139,8 +137,6 @@ proc change_magzoom_level { factor } {
     ds9Cmd "-magnifier zoom $newzoom"
 
 }
-
-
 proc add_bottom_buttons {} {
     global ds9_hack_root
     
