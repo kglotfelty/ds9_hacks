@@ -62,10 +62,7 @@ proc LayoutViewVert {} {
     add_left_buttons
     grid $ds9(hack_left) -row 1 -column 0 -sticky ns
 
-    if { [winfo exists $ds9(main).hack_top] == 0 } {
-        ttk::frame $ds9(main).hack_top
-        set ds9(hack_top) $ds9(main).hack_top
-    }
+    add_top_buttons
     grid $ds9(hack_top) -row -0 -column 0 -columnspan 4 -sticky we
 
 
