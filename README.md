@@ -1,6 +1,6 @@
 # Customizing SAOImageDS9
 
-![ds9_ui.png](ds9_ui.png)
+![ds9_ui.png](doc/ds9_ui.png)
 
 
 The [SAOImage ds9](http://ds9.si.edu) 
@@ -66,14 +66,14 @@ a `Tcl/Tk` script which can do whatever the user desires.  The
 version of the script in this repro loads the other scripts to create the various buttons,
 loads the new color lookup tables, and adds new analysis tasks.
 
-![design.png](design.png)
+![design.png](doc/design.png)
 
 ### Buttons
 
 The buttons are created using a set of `Tcl/Tk` scripts.  Each of the scripts 
 creates a set of buttons:
 
-![ds9_buttons.png](ds9_buttons.png)
+![ds9_buttons.png](doc/ds9_buttons.png)
 
 
 Each of the scripts has comments describing how, in general, it works.  
