@@ -1,5 +1,12 @@
 
+
 proc LayoutViewVert {} {
+    # Hijack the Vertical view, for now
+    
+    LayoutViewAdvanced
+}
+
+proc LayoutViewAdvanced {} {
     global ds9
     global current
     global view
