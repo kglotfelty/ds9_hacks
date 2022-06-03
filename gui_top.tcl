@@ -1,16 +1,17 @@
 
-
-
 global scale_icons
+global lutbar_icons
+global lutbar_names
+global unknown_icon
+global lutbar
+
+
+
 set scale_icons [ list [image create photo -file "$ds9_hack_root/UI/log.png"] \
                        [image create photo -file "$ds9_hack_root/UI/lin.png"] \
                        [image create photo -file "$ds9_hack_root/UI/pow.png"] \
                        [image create photo -file "$ds9_hack_root/UI/scale_other.png"] \
                         ]
-
-global lutbar_icons
-global lutbar_names
-global unknown_icon
 
 
 proc setup_top_button_bar {} {
@@ -154,32 +155,18 @@ proc setup_top_button_bar {} {
     
 }
 
+
 proc add_lut_colorbar_menu {} {
     global lutbar_icons
     global lutbar_names
     global unknown_icon
     global ds9
     global ds9_hack_root
-        
-    set lutbar [list "$ds9_hack_root/LUT/DS9/grey.png" \
-                     "$ds9_hack_root/LUT/DS9/bb.png" \
-                     "$ds9_hack_root/LUT/ImageJ/smart.png" \
-                     "$ds9_hack_root/LUT/ImageJ/heart.png" \
-                     "$ds9_hack_root/LUT/XImage/purple3.png" \
-                     "$ds9_hack_root/LUT/Neota/neota_sunset-in-atlantis.png" \
-                     "$ds9_hack_root/LUT/ImageJ/005-random.png" \
-                     "$ds9_hack_root/LUT/ImageJ/16_ramps.png" \
-                     "$ds9_hack_root/LUT/ImageJ/blue_orange.png" \
-                     "$ds9_hack_root/LUT/ImageJ/icool.png" \
-                     "$ds9_hack_root/LUT/XImage/green7.png" \
-                     "$ds9_hack_root/LUT/Neota/neota_pastel-rainbow.png" \
-                     "$ds9_hack_root/LUT/Neota/neota_rainbow-sunset.png" \
-                     "$ds9_hack_root/LUT/Neota/neota_purple-gold.png" \
-                     "$ds9_hack_root/LUT/Neota/neota_pink-sunset.png" \
-                      ]                 
+    global lutbar
 
     set unknown_lut "$ds9_hack_root/LUT/unknown.png"
 
+    set_default_cmap
 
     foreach {i} $lutbar {
 
@@ -220,6 +207,38 @@ proc add_lut_colorbar_menu {} {
     
     
 }
+
+proc set_default_cmap {} {
+    # This let's me override the list of just the ds9 cmaps
+
+    global lutbar
+
+    if { [info exists lutbar] } {
+        return
+    }
+
+    set lutbar [list \
+        "$ds9_hack_root/LUT/DS9/a.png" \
+        "$ds9_hack_root/LUT/DS9/aips0.png" \
+        "$ds9_hack_root/LUT/DS9/b.png" \
+        "$ds9_hack_root/LUT/DS9/bb.png" \
+        "$ds9_hack_root/LUT/DS9/blue.png" \
+        "$ds9_hack_root/LUT/DS9/color.png" \
+        "$ds9_hack_root/LUT/DS9/cool.png" \
+        "$ds9_hack_root/LUT/DS9/green.png" \
+        "$ds9_hack_root/LUT/DS9/grey.png" \
+        "$ds9_hack_root/LUT/DS9/he.png" \
+        "$ds9_hack_root/LUT/DS9/heat.png" \
+        "$ds9_hack_root/LUT/DS9/hsv.png" \
+        "$ds9_hack_root/LUT/DS9/i8.png" \
+        "$ds9_hack_root/LUT/DS9/rainbow.png" \
+        "$ds9_hack_root/LUT/DS9/red.png" \
+        "$ds9_hack_root/LUT/DS9/sls.png" \
+        "$ds9_hack_root/LUT/DS9/staircase.png" \
+        "$ds9_hack_root/LUT/DS9/standard.png" \
+        ]
+}
+
 
 proc button_change_scale { newval iswhat } {
   global ds9

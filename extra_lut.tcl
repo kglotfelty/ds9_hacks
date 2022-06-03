@@ -20,7 +20,7 @@ proc MyLoadColormapFile { myid dir filename extn} {
     global ds9
 
     if {$fn == {}} {
-	return
+        return
     }
 
     # first load into default cmap
@@ -28,8 +28,8 @@ proc MyLoadColormapFile { myid dir filename extn} {
     set orgInvert [colorbar get invert]
 
     if {[catch {colorbar load "\{$fn\}"} rr]} {
-	Error $rr
-	return
+        Error $rr
+        return
     }
     set cmap [colorbar get name]
     lappend icolorbar(user,cmaps) $cmap
@@ -39,20 +39,20 @@ proc MyLoadColormapFile { myid dir filename extn} {
 
     # now load into all current cmaps
     foreach ff $ds9(frames) {
-	set cb ${ff}cb
-	switch [$cb get type] {
-	    base {
-		set orgName [$cb get name]
-		set orgInvert [$cb get invert]
-		if {[catch {$cb load "\{$fn\}"} rr]} {
-		    Error $rr
-		    return
-		}
-		$cb map $orgName
-		$cb invert $orgInvert
-	    }
-	    rgb {}
-	}
+        set cb ${ff}cb
+        switch [$cb get type] {
+            base {
+                set orgName [$cb get name]
+                set orgInvert [$cb get invert]
+                if {[catch {$cb load "\{$fn\}"} rr]} {
+                    Error $rr
+                    return
+                }
+                $cb map $orgName
+                $cb invert $orgInvert
+            }
+            rgb {}
+        }
     }
 
     # add to menu
@@ -64,14 +64,19 @@ proc MyLoadColormapFile { myid dir filename extn} {
 
 }
 
-$ds9(mb).color add separator
+proc load_extra_colormaps {} {
+    global ds9
+    global ds9_hack_root
 
-# Not all these are available on my github repro
-foreach c [list "ximage" "imagej" "neota" "kst" "ncar" "mpl" "cet" "cmocean"] {
-    set lut $ds9_hack_root/LUT/$c.tcl
-    if { [file exists $lut] == 1 } {
-        source $lut
+    $ds9(mb).color add separator
+
+    # Not all these are available on my github repro
+    foreach c [list "ximage" "imagej" "neota" "kst" "ncar" "mpl" "cet" "cmocean"] {
+        set lut $ds9_hack_root/LUT/$c.tcl
+        if { [file exists $lut] == 1 } {
+            source $lut
+        }
+
     }
 
 }
-
