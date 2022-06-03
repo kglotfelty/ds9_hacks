@@ -5,85 +5,85 @@ pack configure $ds9(hack_top).ciao -side left
 
 
 ttk::button $ds9(hack_top).ciao.pi -text {PI Spectrum} -takefocus 0 -command {ds9Cmd "-analysis task PI"} \
-   -image [image create photo -file "$ds9_hack_root/UI/spectrum.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/spectrum.png"]
 ttk::button $ds9(hack_top).ciao.time -text {Lightcurve} -takefocus 0 -command {ds9Cmd "-analysis task TIME"} \
-   -image [image create photo -file "$ds9_hack_root/UI/lightcurve.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/lightcurve.png"]
 ttk::button $ds9(hack_top).ciao.glvary -text {GL Vary} -takefocus 0 -command {ds9Cmd "-analysis task {Gregory-Loredo Lightcurve}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/glvary.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/glvary.png"]
 
 ttk::button $ds9(hack_top).ciao.stats -text {Statistics} -takefocus 0 -command {ds9Cmd "-analysis task {Statistics (dmstat)}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/stats.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/stats.png"]
 
 ttk::button $ds9(hack_top).ciao.netcts -text {Net Counts} -takefocus 0 -command {ds9Cmd "-analysis task {Net Counts}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/net.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/net.png"]
 
 ttk::button $ds9(hack_top).ciao.flux -text {Srcflux} -takefocus 0 -command {ds9Cmd "-analysis task {Photometry (srcflux)}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/flux.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/flux.png"]
 
 ttk::button $ds9(hack_top).ciao.coords -text {Cooridnates} -takefocus 0 -command {ds9Cmd "-analysis task {Chandra Coordinates}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/coords.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/coords.png"]
 
 ## -- Sherpa
 
 ttk::button $ds9(hack_top).ciao.specfit -text {Spectral Fit} -takefocus 0 -command {ds9Cmd "-analysis task {Spectral Fit}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/specfit.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/specfit.png"]
 
 ttk::button $ds9(hack_top).ciao.imgfit -text {2D Fit} -takefocus 0 -command {ds9Cmd "-analysis task {2D Image Fit}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/imgfit.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/imgfit.png"]
 
 
 
 #~ pfold.png
 ttk::button $ds9(hack_top).ciao.pfold -text {Period Fold} -takefocus 0 -command {ds9Cmd "-analysis task {Period Fold}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/pfold.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/pfold.png"]
 
 #~ pixel_histogram.png
 ttk::button $ds9(hack_top).ciao.imghist -text {Pixel Histogram} -takefocus 0 -command {ds9Cmd "-analysis task {Pixel}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/pixel_histogram.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/pixel_histogram.png"]
 #~ radial_prof.png
 ttk::button $ds9(hack_top).ciao.rprof -text {Radial Profile} -takefocus 0 -command {ds9Cmd "-analysis task {Radial Profile}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/radial_prof.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/radial_prof.png"]
 
 #~ mexhat.png
 ttk::button $ds9(hack_top).ciao.wav -text {Wavdetect} -takefocus 0 -command {ds9Cmd "-analysis task {wavdetect}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/mexhat.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/mexhat.png"]
 #~ cell.png
 ttk::button $ds9(hack_top).ciao.cel -text {Celldetect} -takefocus 0 -command {ds9Cmd "-analysis task {celldetect}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/cell.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/cell.png"]
 #~ vtp.png
 ttk::button $ds9(hack_top).ciao.vtp -text {Vtpdetect} -takefocus 0 -command {ds9Cmd "-analysis task {vtpdetect}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/vtp.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/vtp.png"]
 
 ttk::button $ds9(hack_top).ciao.filth -text {Dmfilth} -takefocus 0 -command {ds9Cmd "-analysis task {Source Fill}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/dmfilth.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/dmfilth.png"]
 
 
 ttk::button $ds9(hack_top).ciao.thresh -text {Dmimgthresh} -takefocus 0 -command {ds9Cmd "-analysis task {Threshold}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/dmimgthresh.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/dmimgthresh.png"]
 ttk::button $ds9(hack_top).ciao.imgfilt -text {Dmimgfilt} -takefocus 0 -command {ds9Cmd "-analysis task {Non-Linear Filter}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/dmimgfilt.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/dmimgfilt.png"]
 ttk::button $ds9(hack_top).ciao.imgadapt -text {Dmimgadapt} -takefocus 0 -command {ds9Cmd "-analysis task {Adaptive Smooth}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/adaptive_smooth.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/adaptive_smooth.png"]
 ttk::button $ds9(hack_top).ciao.csmooth -text {Csmooth} -takefocus 0 -command {ds9Cmd "-analysis task {Csmooth}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/csmooth.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/csmooth.png"]
 ttk::button $ds9(hack_top).ciao.nautilus -text {Dmnautilus} -takefocus 0 -command {ds9Cmd "-analysis task {Adaptive Bin}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/adaptive_bin.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/adaptive_bin.png"]
 ttk::button $ds9(hack_top).ciao.lasso -text {Dmimglasso} -takefocus 0 -command {ds9Cmd "-analysis task {Lasso}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/dmimglasso.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/dmimglasso.png"]
 ttk::button $ds9(hack_top).ciao.ellipse -text {Dmellipse} -takefocus 0 -command {ds9Cmd "-analysis task {Ellipse}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/dmellipse.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/dmellipse.png"]
 
 ttk::button $ds9(hack_top).ciao.calc_add -text {Add} -takefocus 0 -command {ds9Cmd "-analysis task {ADD: previous frame to current frame (c+p)}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/calc_add.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/calc_add.png"]
 ttk::button $ds9(hack_top).ciao.calc_sub -text {Sub} -takefocus 0 -command {ds9Cmd "-analysis task {SUB2: subtract current frame from previous (p-c)}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/calc_sub.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/calc_sub.png"]
 ttk::button $ds9(hack_top).ciao.calc_mul -text {Mul} -takefocus 0 -command {ds9Cmd "-analysis task {MUL: multiply current and previous frame (c*p)}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/calc_mul.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/calc_mul.png"]
 ttk::button $ds9(hack_top).ciao.calc_div -text {Div} -takefocus 0 -command {ds9Cmd "-analysis task {DIV2: divide previous frame by current (p/c)}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/calc_div.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/calc_div.png"]
 
 ttk::button $ds9(hack_top).ciao.marx -text {MARX} -takefocus 0 -command {ds9Cmd "-analysis task {Simulate PSF with MARX}"} \
-   -image [image create photo -file "$ds9_hack_root/UI/groucho.png"]
+   -image [image create photo -file "$ds9_hack_root/UI/ciao/groucho.png"]
    
 
 pack $ds9(hack_top).ciao.pi -side left
