@@ -223,7 +223,7 @@ proc my_change_frame { newval iswhat } {
 
   ds9Cmd "-$iswhat"
 
-  $ds9(main).hack_bottom.frames.at configure -text $newval \
+  $ds9(hack_bottom).at configure -text $newval \
     -image [lindex $frame_icons $newval]
 
 }

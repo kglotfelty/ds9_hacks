@@ -4,7 +4,7 @@ global lutbar_icons
 global lutbar_names
 global unknown_icon
 global lutbar
-
+global ds9_hack_root
 
 
 set scale_icons [ list [image create photo -file "$ds9_hack_root/UI/log.png"] \
@@ -212,7 +212,8 @@ proc set_default_cmap {} {
     # This let's me override the list of just the ds9 cmaps
 
     global lutbar
-
+    global ds9_hack_root
+    
     if { [info exists lutbar] } {
         return
     }

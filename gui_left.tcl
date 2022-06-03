@@ -96,7 +96,7 @@ proc setup_left_button_bar {} {
 
     # width
     setup_region_width_icons
-    pack $ds9(main).hack_left.size -side top -fill x
+    pack $ds9(hack_left).size -side top -fill x
     
     # state/layer/others
     setup_region_prop_icons
