@@ -131,6 +131,8 @@ proc setup_left_button_bar {} {
 
     trace add variable current(mode) write "sync_edit_mode"
     trace add variable marker(shape) write "sync_region_shape"
+    trace add variable marker(color) write "sync_region_color"
+    trace add variable marker(width) write "sync_region_width"
 
 }
 
@@ -453,4 +455,36 @@ proc sync_region_shape {name1 name2 op} {
     }
 
 
+}
+
+proc sync_region_width {name1 name2 op} {
+  global marker
+  global ds9
+  global regwidth_icons
+
+  set newval $marker(width) 
+  set idx [expr $newval - 1]
+
+  $ds9(main).hack_left.size configure -text $newval \
+  -image [make_button_image $newval]
+    
+    
+}
+
+proc sync_region_color {name1 name2 op} {
+
+  global marker
+  global x11_colors
+  global ds9
+  
+  set idx [lsearch -exact $x11_colors "$marker(color)"]
+
+  if { $idx < 0 } {
+     set idx 11
+  }
+
+  $ds9(hack_left).colors configure \
+    -image [make_color_button_image $idx]
+
+    
 }
