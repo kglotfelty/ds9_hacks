@@ -114,7 +114,9 @@ proc add_zoom_buttons {} {
 
 global frame_icons
 set frame_icons [ list [image create photo -file "$ds9_hack_root/UI/frame_single.png"] \
-                       [image create photo -file "$ds9_hack_root/UI/frame_tile.png"] \
+                       [image create photo -file "$ds9_hack_root/UI/frame_tile_grid.png"] \
+                       [image create photo -file "$ds9_hack_root/UI/frame_tile_col.png"] \
+                       [image create photo -file "$ds9_hack_root/UI/frame_tile_row.png"] \
                        [image create photo -file "$ds9_hack_root/UI/frame_blink.png"] \
                 ]
 
@@ -151,13 +153,20 @@ proc add_frame_buttons {} {
         -command {my_change_frame 0 "single"} \
         -image [lindex $frame_icons 0] -compound left
 
-    $ds9(hack_bottom).at.m add command -label [msgcat::mc {Tile Frames}] \
-        -command {my_change_frame 1 "tile"} \
+    $ds9(hack_bottom).at.m add command -label [msgcat::mc {Tile Frames (grid)}] \
+        -command {my_change_frame 1 "tile mode grid"} \
         -image [lindex $frame_icons 1] -compound left 
+    $ds9(hack_bottom).at.m add command -label [msgcat::mc {Tile Frames (columns)}] \
+        -command {my_change_frame 2 "tile mode column"} \
+        -image [lindex $frame_icons 2] -compound left 
+    $ds9(hack_bottom).at.m add command -label [msgcat::mc {Tile Frames (rows)}] \
+        -command {my_change_frame 3 "tile mode row"} \
+        -image [lindex $frame_icons 3] -compound left 
+
 
     $ds9(hack_bottom).at.m add command -label [msgcat::mc {Blink Frames}] \
-        -command {my_change_frame 2 "blink"} \
-        -image [lindex $frame_icons 2]  -compound left
+        -command {my_change_frame 4 "blink"} \
+        -image [lindex $frame_icons 4]  -compound left
 
 
     ttk::button $ds9(hack_bottom).next -text {Next Frame} -takefocus 0 \
@@ -221,6 +230,11 @@ proc my_change_frame { newval iswhat } {
   global ds9
   global frame_icons
 
+  if {[string match "tile*" $iswhat]} {
+      ds9Cmd "-tile on"
+  } else {
+      ds9Cmd "-tile off"
+  }
   ds9Cmd "-$iswhat"
 
   $ds9(hack_bottom).at configure -text $newval \
@@ -231,11 +245,18 @@ proc my_change_frame { newval iswhat } {
 
 proc sync_frame_display {name1 name2 op} {
     global current
-
+    global tile
     switch $current(display) {
         single      {my_change_frame 0 $current(display)}
-        tile        {my_change_frame 1 $current(display)}
-        blink       {my_change_frame 2 $current(display)}
+
+
+        tile        {
+            switch $tile(mode) {
+              grid   {my_change_frame 1 "tile mode grid"}
+              column {my_change_frame 2 "tile mode column"}
+              row    {my_change_frame 3 "tile mode row"}
+        } }
+        blink       {my_change_frame 4 $current(display)}
     }
 
 
