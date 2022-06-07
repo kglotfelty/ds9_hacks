@@ -125,6 +125,7 @@ proc add_frame_buttons {} {
     global ds9_hack_root
     global frame_icons
     global current
+    global tile
 
     ttk::button $ds9(hack_bottom).add -text {Add Frame} -takefocus 0 \
         -command {ds9Cmd "-frame new"} \
@@ -146,6 +147,8 @@ proc add_frame_buttons {} {
     ttk::menubutton $ds9(hack_bottom).at -menu $ds9(hack_bottom).at.m \
       -text "Frame State" -direction above\
       -image [lindex $frame_icons 0] -takefocus 0
+    
+    sync_frame_display dummy dummy dummy
      
     menu $ds9(hack_bottom).at.m -tearoff 0
 
@@ -205,6 +208,7 @@ proc add_frame_buttons {} {
 
 
     trace add variable current(display) write "sync_frame_display"
+    trace add variable tile(mode) write "sync_frame_display"
 
     if { ![catch {package require tooltip}] } {
         tooltip::tooltip $ds9(hack_bottom).add "Add New Frame"
